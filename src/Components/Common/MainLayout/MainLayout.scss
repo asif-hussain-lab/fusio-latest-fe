@@ -1,0 +1,13 @@
+@import "../../../Assets/theme/_var.scss";
+
+.main-wrap {
+  min-height: calc(100vh - 159px);
+
+  @media (max-width:1699px) {
+    min-height: calc(100vh - 149px);
+  }
+
+  .login_page {
+    min-height: 100vh;
+  }
+}

@@ -1,0 +1,72 @@
+@import '../../../../Assets/theme/_var.scss';
+
+.editPortfolioModal {
+  .modal-title {
+      h6.text-danger {
+        width: 90%;
+        line-height: normal;
+        margin-top: 5px;
+      }
+    }
+  
+    .customInput_inner {
+      &.errorMargin {
+        margin-bottom: 2.5rem;
+      }
+  
+      .common_select {
+        margin-bottom: 0;
+      }
+    }
+}
+
+.RemoveIcon {
+  height: 5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  background-color: rgba(255, 118, 118, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  cursor: pointer;
+
+  @media (max-width: 1599px) {
+    height: 4.5rem;
+  }
+}
+
+.select__menu img {
+  border-radius: 50%;
+  width: 35px;
+  margin-right: 5px;
+}
+
+.common_select.input_select {
+  margin-bottom: 0.1rem;
+}
+
+.select__multi-value img {
+  border-radius: 50% !important;
+  width: 20px !important;
+}
+
+.transactionHeadinges {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.cancelbtn {
+  display: flex;
+  background-color: transparent;
+  align-items: center;
+  color: $redclr;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 140%;
+  letter-spacing: 0.2px;
+  transition: all ease-in-out 0.3s;
+  border: none;
+  padding: 0;
+}

@@ -1,0 +1,37 @@
+@import "../../../Assets/theme/_var.scss";
+
+@import '../../../Assets/theme/_mixins.scss';
+
+.auth_layout {
+    &_inner {
+        padding-left: 252px;
+        min-height: 100vh;
+        position: relative;
+
+        &_Right {
+            padding: 3.6rem 4rem;
+            min-height: calc(100vh - 162px);
+            
+            .container-fluid {
+                padding: 0;
+            }
+
+            @media (max-width:1699px) {
+                padding: 3rem 2rem;
+                min-height: calc(100vh - 149px);         
+            }
+            @media (max-width:1199px) {
+                padding: 3rem 1.5rem;
+                min-height: calc(100vh - 129px);
+            }
+        }
+    }
+
+    @media (max-width: 1199px) {
+        &_inner {
+            padding-left: 0;
+        }
+    }
+    
+}
+

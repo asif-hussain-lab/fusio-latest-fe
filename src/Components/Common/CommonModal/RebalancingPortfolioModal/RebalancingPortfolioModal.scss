@@ -1,0 +1,58 @@
+@import "../../../../Assets/theme/_var.scss";
+
+.rebalancingPortfolioModal {
+    &.modal {
+        .modal-dialog {
+            max-width: 92.2rem;
+
+            .modal-body {
+                padding-top: 0rem;
+
+                .commonContentModal {
+                    ol {
+                        padding-left: 2rem;
+
+                        li {
+                            padding-bottom: 1.5rem;
+                            color: $whiteclr;
+
+                            &:last-child {
+                                margin-bottom: 0;
+                            }
+
+                            a {
+                                color: $yellowclr !important;
+                            }
+                        }
+                    }
+                }
+
+                .btn-style {
+                    @media (max-width:767px) {
+                        min-width: 12rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .borderRight {
+        border-right: 1px solid $borderclr;
+
+        @media (max-width:767px) {
+            border: none;
+        }
+    }
+
+    .customInput {
+        margin-bottom: 0;
+    }
+
+    .assetRow {
+        margin-bottom: 1.8rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

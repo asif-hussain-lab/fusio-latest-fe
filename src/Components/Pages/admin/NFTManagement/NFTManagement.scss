@@ -1,0 +1,34 @@
+@import "../../../../Assets/theme/_var.scss";
+
+.nftManagement {
+    .tableless {
+        width: 100%;
+    }
+
+    .coin_TableInner {
+        margin-top: 5rem;
+
+        .tab_sec {
+            align-items: center;
+            margin-bottom: 3.6rem;
+            background: $cardbgclr ;
+
+            .nav {
+                border: none;
+
+                .nav-item {
+                    .nav-link {
+                        font-size: 1.6rem;
+                        color: $textclr !important;
+
+                        &.active {
+                            color: $yellowclr !important;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+}

@@ -1,0 +1,17 @@
+@import '../../../../Assets/theme/_var.scss';
+
+.tokenPrice {
+  display: flex;
+
+  p {
+    margin-left: 5px;
+  }
+}
+
+.msg {
+  bottom: 1rem;
+  text-align: right;
+  width: 100%;
+  right: 1rem;
+  font-size: 1.2rem;
+}

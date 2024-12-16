@@ -1,0 +1,66 @@
+@import '../../../../../Assets/theme/_var.scss';
+
+.investment_card {
+  padding: 2.8rem 2.8rem;
+  border-radius: 1.6rem;
+  width: 100%;
+  box-shadow: 0px 3px 50px 0px rgba(0, 0, 0, 0.51);
+  backdrop-filter: blur(12px);
+  position: relative;
+  z-index: 1;
+  border: none;
+  background-color: transparent;
+  min-height: 25rem;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(2.55rem);
+    border: 2px solid transparent;
+    background: #18749D;
+    border-radius: 1.6rem;
+    z-index: -1;
+  }
+
+  h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 3.6rem;
+  }
+
+  h4 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: $textclr;
+
+    span {
+      color: $whiteclr;
+    }
+  }
+
+  .invest_btn {
+    text-align: center;
+    margin-top: 5.8rem;
+
+    @media (max-width: 1599px) {
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 991px) {
+      margin-top: 2.5rem;
+    }
+
+    .btn-style {
+      min-width: 19rem;
+    }
+  }
+  .discount_text {
+    font-size: 1.25rem;
+    color: #0ce93b;
+    font-weight: 600;
+  }
+}

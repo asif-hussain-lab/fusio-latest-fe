@@ -1,0 +1,177 @@
+@import '../../../Assets/theme/_mixins.scss';
+
+.connect_wallet {
+  .modal-dialog {
+    .modal-content {
+      padding: 2.8rem 2.8rem 3.6rem;
+      border-radius: 1.6rem;
+      width: 100%;
+      box-shadow: 0px 3px 50px 0px rgba(0, 0, 0, 0.51);
+      backdrop-filter: blur(12px);
+      position: relative;
+      z-index: 1;
+      border: none;
+      background-color: transparent;
+      min-height: 25rem;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        backdrop-filter: blur(2.55rem);
+        border: 2px solid transparent;
+        background: linear-gradient(179deg, rgba(5, 27, 55, 1) 0%, rgba(5, 27, 55, 1) 0%) padding-box, linear-gradient(129deg, #eef5fa 0%, rgba(14, 40, 115, 0) 20%, rgba(5, 27, 55, 1) 80%, #ffffff 100%) border-box;
+        border-radius: 1.6rem;
+        z-index: -1;
+      }
+
+      .modal-header {
+        border: 0;
+        padding: 0;
+
+        .modal-title {
+          h4 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            line-height: normal;
+          }
+        }
+      }
+
+      .modal_close_btn,
+      .btn-close {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+
+        &:focus {
+          box-shadow: none;
+          outline: 0;
+        }
+      }
+
+      .btn-close {
+        filter: brightness(1) invert(1);
+        opacity: 1;
+
+        &:focus {
+          box-shadow: none;
+          outline: 0;
+        }
+      }
+
+      .modal-body {
+        padding: 0;
+        padding-top: 3.2rem;
+      }
+
+      .btn-style {
+        min-width: 19rem;
+      }
+
+      .modal-body {
+        .connect_options {
+          ul {
+            padding: 0;
+
+            li {
+              list-style: none;
+              margin-bottom: 10px;
+
+              &:last-child {
+                margin-bottom: 0;
+              }
+
+              button {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                border-radius: 16px;
+                font-family: $baseFont;
+                padding: 0.8rem 2.5rem;
+                font-size: 1.6rem;
+                font-weight: 700;
+                background-color: $whiteclr;
+                border: 0;
+                text-transform: capitalize;
+                transition: all ease-in-out 0.3s;
+                min-width: 15rem;
+                color: $baseclr;
+                text-align: left;
+                min-height: auto;
+
+                &:hover {
+                  background-color: $yellowclr;
+                }
+
+                span {
+                  margin-right: 10px;
+                  width: 30px;
+                  height: 30px;
+                }
+              }
+
+              .connect_options_details {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                border-radius: 16px;
+                border: 1px solid;
+                padding: 10px;
+
+                .spinner-border {
+                  width: 20px;
+                  height: 20px;
+                  border-width: 3px;
+                }
+
+                .btn-style {
+                  max-width: 200px;
+                  width: fit-content;
+                  height: 34px;
+                  font-size: 14px;
+                  border-radius: 10px;
+                  transition: 300ms ease-in-out;
+                  margin-left: 10px;
+                }
+
+                &.danger {
+                  .spinner-border {
+                    border-color: inherit;
+                    border-right-color: transparent;
+                  }
+
+                  .btn-style {
+                    color: #fff;
+                    border: none;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.modal-backdrop {
+  &.transaction_modal_bckdrop {
+    background: rgba(9, 35, 64, 0.22);
+    backdrop-filter: blur(17px);
+    opacity: 1;
+  }
+}
+
+body .offcanvas-backdrop {
+  &.fade {
+    background: rgba(9, 35, 64, 0.22);
+    backdrop-filter: blur(7px);
+    opacity: 1;
+  }
+}

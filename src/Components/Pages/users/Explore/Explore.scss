@@ -1,0 +1,39 @@
+@import '../../../../Assets/theme/_var.scss';
+
+.exploreSwitch {
+  display: flex;
+  align-items: center;
+
+  p {
+    margin-right: 1rem;
+  }
+}
+
+.exploreFilter {
+  .customDropdown {
+    min-width: 17rem;
+
+    .Dropdown-root {
+      .Dropdown-menu {
+        .Dropdown-option {
+          position: relative;
+
+          &.is-selected {
+            &::after {
+              content: '';
+              position: absolute;
+              right: 0rem;
+              top: 1.3rem;
+              background-image: url($IMAGE_BASE_URL + 'Icons/greencheck.svg');
+              width: 1rem;
+              height: 0.7rem;
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+@import"../../../../Assets/theme/_var.scss";
+.chartBg {
+    border: 2px solid;
+    border-image-source: radial-gradient(72.75% 202.79% at 64.88% 76.31%, rgba(24, 116, 157, 0) 0%, rgba(24, 116, 157, 0.3) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    backdrop-filter: blur(20px);
+    box-shadow: 35px 35px 100px -9px #0000004D;
+    
+}
+
+canvas {
+    border-radius: 15px;
+}
+
+.legacyPortfolio {
+    h3 {
+        font-weight: 600;
+        color: $whiteclr;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 2.2rem;
+
+        @media(max-width:1199px) {
+            font-size: 1.7rem;
+        }
+    }
+}

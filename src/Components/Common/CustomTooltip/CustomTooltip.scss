@@ -1,0 +1,93 @@
+@import "../../../Assets/theme/_var.scss";
+
+.CustomTooltip {
+    display: block;
+    cursor: pointer;
+
+    span {
+        display: block;
+        color: $whiteclr;
+        svg {
+            width: 14px;
+            height: 14px;
+
+        }
+    }
+
+    &.percentageToolTip{
+        span {
+                display: flex;
+                align-items: center;
+        
+                svg {
+                    width: 14px;
+                    height: 14px;
+        
+                }
+            }
+    }
+
+    &.copyTool {
+        span {
+            display: block;
+
+            svg {
+                width: 20px;
+                height: 20px;
+
+            }
+        }
+    }
+
+    &.copyToolSuccess {
+        span {
+            display: block;
+
+            svg {
+                margin-left: 3px;
+                width: 17px;
+                height: 20px;
+
+                path {
+                    fill: none;
+                }
+            }
+        }
+    }
+}
+
+.tooltip {
+    background-color: $blackclr;
+    opacity: 1;
+    border-radius: 0 14px;
+    position: fixed !important;
+
+    &.show {
+        opacity: 1;
+    }
+
+    .tooltip-inner {
+        max-width: 25rem;
+        width: 100%;
+        background-color: $blackclr;
+        color: $whiteclr;
+        text-align: center;
+        padding: 10px;
+        border-radius: 0 20px;
+        font-size: 1.2rem;
+        font-weight: 300;
+        opacity: 1;
+        backdrop-filter: blur(4px);
+
+    }
+
+    .tooltip-arrow {
+        width: 1.5rem;
+        height: 0.5rem;
+
+        &::before {
+            border-top-color: $blackclr;
+            border-width: 0.8rem calc(1.5rem * .5) 0;
+        }
+    }
+}

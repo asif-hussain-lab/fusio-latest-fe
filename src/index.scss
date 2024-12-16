@@ -1,0 +1,540 @@
+@import './Assets/theme/_var.scss';
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: $gradientbasebg;
+}
+
+body,
+code {
+  margin: 0;
+  padding: 0;
+  font-family: $baseFont;
+  overflow-x: hidden;
+  font-size: 1.6rem;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+hr {
+  color: $whiteclr;
+}
+
+img {
+  max-width: 100%;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+  transition: all ease-in-out 0.3s;
+}
+
+a {
+  display: inline-block;
+  cursor: pointer;
+}
+
+span {
+  display: inline-block;
+}
+
+.buyBtn {
+  width: 100%;
+  max-width: 100px;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+ol {
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: $whiteclr;
+  line-height: 4.1rem;
+
+  @media (max-width: 767px) {
+    font-size: 2.5rem;
+    line-height: 3.4rem;
+  }
+}
+
+h3 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: $whiteclr;
+  line-height: 3.3rem;
+
+  @media (max-width: 1599px) {
+    font-size: 2.2rem;
+    line-height: 3.2rem;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 2rem;
+    line-height: 2.9rem;
+  }
+}
+
+h4 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: $whiteclr;
+  line-height: 2.9rem;
+
+  @media (max-width: 767px) {
+    font-size: 1.8rem;
+    line-height: 2.7rem;
+  }
+}
+
+h5 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: $whiteclr;
+  line-height: 2.7rem;
+
+  @media (max-width: 767px) {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+}
+
+h6 {
+  font-weight: 600;
+}
+
+h6,
+p {
+  font-size: 1.4rem;
+  color: $whiteclr;
+  line-height: 2.3rem;
+}
+
+.pt-40 {
+  padding-top: 4rem;
+}
+
+.pt-50 {
+  padding-top: 5rem;
+}
+
+.pt-70 {
+  padding-top: 7rem;
+}
+
+.pb-40 {
+  padding-bottom: 4rem;
+}
+
+.pb-50 {
+  padding-bottom: 5rem;
+}
+
+.pb-70 {
+  padding-bottom: 7rem;
+}
+
+.red_text {
+  color: $redclr !important;
+  font-weight: 600;
+}
+
+.green_text {
+  color: $greenclr !important;
+  font-weight: 600;
+}
+
+.yellow_text {
+  color: $yellowclr !important;
+  font-weight: 600;
+}
+
+.blue_text {
+  color: $lightblue !important;
+  font-weight: 600;
+}
+
+.white_text {
+  color: $whiteclr !important;
+  font-weight: 600;
+}
+
+.green_bg {
+  background-color: $greenclr !important;
+  color: $whiteclr !important;
+  font-weight: 600;
+}
+
+.yellow_bg {
+  background-color: $yellowclr !important;
+  color: $whiteclr !important;
+  font-weight: 600;
+}
+
+.blue_bg {
+  background-color: $lightblue !important;
+  color: $whiteclr !important;
+  font-weight: 600;
+}
+
+.white_bg {
+  background-color: $whiteclr !important;
+  color: $whiteclr !important;
+  font-weight: 600;
+}
+.red_bg {
+  background-color: $redclr !important;
+  font-weight: 600;
+  color: $whiteclr !important;
+}
+
+.linkText {
+  padding: 0 !important;
+  color: $yellowclr;
+  background-color: transparent !important;
+}
+
+.container {
+  max-width: 1920px;
+}
+
+.container,
+.container-fluid {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+body ::-webkit-scrollbar {
+  width: 0.6rem;
+  height: 0.5rem;
+}
+
+body ::-webkit-scrollbar-track {
+  box-shadow: transparent;
+}
+
+body ::-webkit-scrollbar-thumb {
+  background-color: $textclr;
+  border-radius: 1rem;
+}
+
+label {
+  color: $whiteclr;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.from-control {
+  height: 5rem;
+  box-shadow: none;
+  outline: none;
+  width: 100%;
+  padding: 0.8rem 2rem;
+  border-radius: 15px;
+  border: 1px solid $borderclr;
+  background-color: #F3EDF780;
+  color: $whiteclr;
+  font-size: 1.6rem;
+
+  @media (max-width: 1599px) {
+    height: 4.5rem;
+    font-size: 1.4rem;
+    padding: 1rem 1.5rem;
+  }
+
+  &::placeholder {
+    color: $textclr;
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.Border_Tabs {
+  @media (max-width: 767px) {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      height: 0rem;
+    }
+  }
+
+  &.nav {
+    border: 0;
+
+    .nav-item {
+      margin-right: 3rem;
+
+      @media (max-width: 767px) {
+        margin-right: 1.5rem;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      .nav-link {
+        border-radius: 0;
+        border: 0;
+        border-bottom: 3px solid transparent;
+        background: transparent;
+        display: flex;
+        padding: 1.5rem 0;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.4rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        color: white;
+
+        @media (max-width: 767px) {
+          padding: 1rem 0;
+          font-size: 1.4rem;
+        }
+
+        &.active {
+          border-color: white;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.dropdown {
+  &-toggle {
+    border: 0;
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: normal;
+
+    img {
+      margin-right: 1rem;
+    }
+
+    &::after {
+      margin-left: 1rem;
+    }
+  }
+
+  &-menu {
+    border-radius: 0;
+    border: 1px solid $borderclr;
+    background: $whiteclr;
+    padding: 0;
+
+    a {
+      font-size: 1.4rem;
+      font-weight: 500;
+      line-height: normal;
+      padding: 1.2rem 1.5rem;
+
+      &:hover {
+        background-color: $yellowclr;
+        color: $whiteclr;
+      }
+    }
+  }
+}
+
+body {
+  .form-check-input {
+    width: 14px;
+    height: 14px;
+    border-color: $borderclr;
+
+    &:checked {
+      background-color: $yellowclr;
+      border-color: $yellowclr;
+    }
+
+    &:focus {
+      box-shadow: none;
+      border-color: $yellowclr;
+    }
+  }
+}
+
+.commonCardbox {
+  padding: 2.6rem;
+  border-radius: 4.3rem;
+  width: 100%;
+  box-shadow: 0px 3px 50px 0px rgba(0, 0, 0, 0.51);
+  backdrop-filter: blur(12px);
+  position: relative;
+  z-index: 1;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    -webkit-backdrop-filter: blur(2.55rem);
+    backdrop-filter: blur(2.55rem);
+    border: 2px solid transparent;
+    background: #18749D;
+    border-radius: 15px;
+    z-index: -1;
+  }
+}
+
+.commonTopbar {
+  background-image: url('./Assets/Images/exploreCardBg.png');
+  background-size: cover;
+  background-position: center center;
+  padding: 0 3rem;
+  border-radius: 15px;
+  margin-bottom: 1.5rem;
+  min-height: 5.3rem;
+
+  @media (max-width: 1599px) {
+    padding: 0rem 2rem;
+  }
+
+  @media (max-width: 991px) {
+    padding: 0 2rem;
+    border-radius: 1rem;
+  }
+}
+
+.mobileHeight {
+  @media (max-width: 991px) {
+    height: 21rem;
+  }
+}
+
+.currencyLogo {
+  width: 35px;
+  height: 35px;
+}
+
+.commonBasecard {
+  border-radius: 15px;
+  padding: 2.6rem;
+  background: #FFFFFF1A;
+  border: 2px solid;
+  border-image-source: radial-gradient(72.75% 202.79% at 64.88% 76.31%, rgba(24, 116, 157, 0) 0%, rgba(24, 116, 157, 0.44) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  backdrop-filter: blur(20px);
+  box-shadow: 35px 35px 100px -9px #0000004D;
+
+
+
+  @media (max-width: 1599px) {
+    padding: 2.5rem 2rem;
+  }
+  @media (max-width: 991px) {
+    padding: 2.5rem 1.5rem;
+  }
+}
+
+img,
+.panelCard,
+a,
+button,
+.dashboard_card,
+table,
+.investorsPage,
+.modal-content,
+.managePortfolio,
+.manageCard,
+.nftcard,
+.auth_layout_inner_Right {
+  animation: fadein 1s;
+  -moz-animation: fadein 1s;
+  -webkit-animation: fadein 1s;
+  -o-animation: fadein 1s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: $textclr;
+}
+
+body::-webkit-scrollbar {
+  width: 6px;
+  background-color: $textclr;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: $baseclr;
+}
+
+.marquee-text {
+  font-size: 1.6rem !important;
+  font-weight: 600 !important;
+}

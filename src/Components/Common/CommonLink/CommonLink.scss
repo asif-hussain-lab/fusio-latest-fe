@@ -1,0 +1,32 @@
+@import "../../../Assets/theme/_var.scss";
+
+.innerPagelink {
+    a {
+        font-size: 1.6rem;
+        font-weight: 700;
+        line-height: normal;
+        color: $yellowclr;
+
+        @media (max-width:991px) {
+            font-size: 1.4rem;
+        }
+
+        svg {
+            margin-right: 0.6rem;
+
+            path {
+                fill: $yellowclr;
+            }
+        }
+
+        &:hover {
+            color: $green;
+
+            svg {
+                path {
+                    fill: $green;
+                }
+            }
+        }
+    }
+}

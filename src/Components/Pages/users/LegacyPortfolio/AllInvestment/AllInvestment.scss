@@ -1,0 +1,78 @@
+@import"../../../../../Assets/theme/_var.scss";
+
+.allinvestment {
+    margin-bottom: 2.4rem;
+    padding: 1.4rem 1.6rem;
+    background: $gradientboxclr;
+    box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.03);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+
+
+    @media (max-width:1199px) {
+        flex-wrap: wrap;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    h4 {
+        font-size: 1.6rem;
+        font-weight: 600;
+
+        a {
+            color: $yellowclr;
+        }
+    }
+
+
+
+    .allinvest_data {
+        display: flex;
+        align-items: center;
+
+        @media (max-width:1199px) {
+            margin-top: 1rem;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        p {
+            font-size: 1.6rem;
+            font-weight: 600;
+            line-height: 2.4rem;
+
+            @media (max-width:767px) {
+                font-size: 1.4rem;
+            }
+        }
+
+        .invest_btn {
+            margin-left: 2.4rem;
+
+            @media (max-width:1599px) {
+                margin-left: 1rem;
+            }
+
+            .btn-style {
+                @media (max-width:1599px) {
+                    min-width: auto;
+                    font-size: 1.4rem;
+                    min-height: 4rem;
+                    padding: 0.8rem 1.5rem;
+                }
+            }
+        }
+    }
+}
+
+.allinvestment:hover {
+    background-color: rgb(96, 95, 94);
+}
+
+.allinvestment.active {
+    background: #213b4f;
+}

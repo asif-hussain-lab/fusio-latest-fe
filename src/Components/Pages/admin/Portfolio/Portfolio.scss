@@ -1,0 +1,11 @@
+@import "../../../../Assets/theme/_var.scss";
+
+.portFolio {
+    .common_select {
+        width: 22rem;
+
+        @media (max-width:767px) {
+            width: 100%;
+        }
+    }
+}

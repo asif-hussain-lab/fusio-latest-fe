@@ -1,0 +1,127 @@
+@import "../../../../Assets/theme/_var.scss";
+
+.login_page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url($IMAGE_BASE_URL+"loginbg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: $radialgradientbg;
+        z-index: -1;
+    }
+
+    .loginBox {
+        position: relative;
+        z-index: 1;
+        max-width: 59.3rem;
+        width: 100%;
+        margin: 0 auto;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: -25%;
+            top: 0;
+            background: $gradientclr;
+            filter: blur(50px);
+            width: 40rem;
+            height: 40rem;
+            border-radius: 100%;
+            z-index: -1;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            right: -30%;
+            bottom: -15%;
+            background: $gradientclr;
+            filter: blur(50px);
+            width: 60rem;
+            height: 60rem;
+            border-radius: 100%;
+            z-index: -1;
+        }
+    }
+
+    &_box {
+        padding: 5rem;
+        border-radius: 4.3rem;
+        width: 100%;
+        box-shadow: 0px 3px 50px 0px rgba(0, 0, 0, 0.51);
+        backdrop-filter: blur(12px);
+        position: relative;
+        z-index: 1;
+
+        @media (max-width: 1699px) {
+            padding: 4rem;
+        }
+
+        @media (max-width: 991px) {
+            padding: 4rem 3rem;
+        }
+
+        @media (max-width: 767px) {
+            padding: 4rem 2rem;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            backdrop-filter: blur(2.55rem);
+            border: 2px solid transparent;
+            background: linear-gradient(179deg, rgba(5, 27, 55, 0.6) 0%, rgba(5, 27, 55, 0.6) 0%) padding-box, linear-gradient(129deg, #eef5fa 0%, rgba(14, 40, 115, 0) 20%, rgba(5, 27, 55, 0.6) 80%, #ffffff 100%) border-box;
+            border-radius: 4.1rem;
+            z-index: -1;
+        }
+
+        &_Logo {
+            width: 28.8rem;
+
+            @media (max-width:1199px) {
+                width: 20rem;
+            }
+        }
+
+        h2 {
+            margin: 4.6rem 0;
+            color: $whiteclr;
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: normal;
+
+            @media (max-width:1699px) {
+                font-size: 3.5rem;
+                margin: 3rem 0;
+            }
+
+            @media (max-width:767px) {
+                font-size: 2.5rem;
+            }
+        }
+
+        .btn-style {
+            min-width: 24rem;
+            margin-top: 2.5rem;
+            display: inline-flex;
+        }
+    }
+}

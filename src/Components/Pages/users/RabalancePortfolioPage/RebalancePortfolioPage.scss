@@ -1,0 +1,25 @@
+@import "../../../../Assets/theme/_var.scss";
+
+
+.btn-style {
+    @media (max-width:767px) {
+        min-width: 12rem;
+    }
+}
+
+
+.borderRight {
+    border-right: 1px solid $borderclr;
+
+    @media (max-width:767px) {
+        border: none;
+    }
+}
+
+.assetRow {
+    margin-bottom: 1.8rem;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}

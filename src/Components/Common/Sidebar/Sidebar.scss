@@ -1,0 +1,121 @@
+@import '../../../Assets/theme/_mixins.scss';
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 252px;
+    transition: transform 300ms ease-in-out;
+    z-index: 1001;
+    background-color: $baseclr;
+    padding: 2.4rem 2.3rem;
+
+    &_inner {
+        li {
+            margin-bottom: 1rem;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            .nav_link {
+                padding: 0 1.3rem;
+                min-height: 5rem;
+                display: flex;
+                position: relative;
+                align-items: center;
+                font-size: 1.4rem;
+                font-weight: 600;
+                color: $whiteclr;
+                border-radius: 15px;
+                transition: all ease-in-out 0.3s;
+
+                &::after {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    width: 4px;
+                    height: 100%;
+                }
+
+                &_icon {
+                    margin-right: 10px;
+                    width: 28px;
+                    height: 28px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 15px;
+                    background-color: transparent;
+                    transition: all ease-in-out 0.3s;
+
+                    svg {
+                        width: 19px;
+
+                        path {
+                            fill: $whiteclr;
+                            transition: all ease-in-out 0.3s;
+                        }
+                    }
+                }
+
+                &:hover {
+                    background-color: $hoverbgclr;
+                    color: $baseclr;
+
+                    .nav_link_icon {
+                        svg {
+                            path {
+                                fill: $whiteclr;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 1199px) {
+        transform: translateX(-100%);
+        padding: 6rem 2rem 3rem;
+    }
+
+    .sidebarLogo {
+        @media (max-width: 1199px) {
+            width: 15rem;
+        }
+    }
+}
+
+body {
+    .SideBar_Menu.offcanvas {
+        width: 252px;
+        background-color: $baseclr;
+
+        .offcanvas-header {
+            position: relative;
+
+            .btn-close {
+                position: absolute;
+                right: 20px;
+                filter: brightness(0) invert(1);
+                opacity: 1;
+                top: 20px;
+                color: $whiteclr;
+                z-index: 9991;
+
+                &:focus {
+                    box-shadow: none;
+                    outline: none;
+                }
+            }
+        }
+
+        .sidebar {
+            @media (max-width: 1199px) {
+                transform: translateX(0%);
+            }
+        }
+    }
+}

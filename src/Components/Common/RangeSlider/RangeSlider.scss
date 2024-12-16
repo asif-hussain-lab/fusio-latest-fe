@@ -1,0 +1,21 @@
+@import '../../../Assets/theme/_var.scss';
+
+.custom-labels {
+    margin-bottom: 4rem;
+    .rangeslider {
+        &__handle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &__labels {
+            .rangeslider__label-item {
+                color: #fff;
+                &:last-child {
+                    left: 0.7rem !important ;
+                }
+            }
+        }
+    }
+}

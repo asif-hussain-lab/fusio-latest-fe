@@ -1,0 +1,34 @@
+@import "../../../../Assets/theme/_var.scss";
+
+.rebalancing {
+    .viewbtn {
+        display: flex;
+        background-color: transparent;
+        align-items: center;
+        color: $whiteclr;
+        font-size: 1.4rem;
+        font-weight: 600;
+        line-height: 140%;
+        letter-spacing: 0.2px;
+        transition: all ease-in-out 0.3s;
+        border: none;
+        padding: 0;
+        color: $yellowclr;
+
+        svg {
+            margin-right: 1rem;
+            transition: all ease-in-out 0.3s;
+        }
+
+        &:hover {
+
+            svg {
+                transform: translateX(2px);
+
+                path {
+                    stroke: $yellowclr;
+                }
+            }
+        }
+    }
+}

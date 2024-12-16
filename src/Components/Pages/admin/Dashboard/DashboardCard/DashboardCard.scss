@@ -1,0 +1,54 @@
+@import '../../../../../Assets/theme/_var.scss';
+
+.dashboard_card {
+    color: $whiteclr;
+    padding: 2.5rem;
+    border-radius: 1.6rem;
+    background: linear-gradient(136.3deg, rgba(255, 255, 255, 0.149) 0%, rgba(255, 255, 255, 0.012) 118.86%);
+    box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.03);
+
+    @media (max-width: 1699px) {
+        padding: 2rem 1.5rem;
+        border-radius: 1.4rem;
+    }
+
+    &_inner {
+        &_header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+
+            .token_icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 50px;
+                height: 50px;
+                background: $gradienticonclr;
+                flex-shrink: 0;
+                border-radius: 1.6rem;
+                box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.03); 
+
+                svg {
+                    path {
+                        fill: $baseclr;
+                    }
+                }
+
+                @media (max-width: 1199px) {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 1rem;
+
+                    svg {
+                        width: 2.2rem;
+                    }
+                }
+            }
+
+            h5 {
+                margin-left: 1.2rem;
+            }
+        }
+    }
+}

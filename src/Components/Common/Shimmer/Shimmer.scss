@@ -1,0 +1,61 @@
+@import '../../../Assets/theme/_var.scss';
+
+.commonShimmer {
+  span {
+    display: block;
+  }
+
+  .placeholder-glow {
+    .placeholder {
+      width: 100%;
+      background-color: rgba(248, 249, 250, 0.3);
+    }
+  }
+
+  &.shimmerCard {
+    width: 100%;
+    border: 1px solid $borderclr;
+    border-radius: 1rem;
+    padding: 3rem 2rem;
+    min-height: 276px;
+
+    .placeholder-glow {
+      .placeholder {
+        width: 100%;
+        min-height: 3rem;
+      }
+    }
+  }
+
+  &.shimmerTable {
+    .tablePlaceholder {
+      display: block;
+      margin-bottom: 1rem;
+    }
+    &.placeholder-glow {
+      .placeholder {
+        background-color: rgba(248, 249, 250, 0.3);
+      }
+    }
+  }
+
+  &.shimmerRow {
+    margin-bottom: 2.4rem;
+    padding: 1.4rem 1.6rem;
+    background: $gradientboxclr;
+    box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.03);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &.shimmerChart{
+      height: 100%;
+
+      .placeholder-glow {
+          .placeholder {
+            min-height: 45rem;
+          }
+        }
+  }
+}

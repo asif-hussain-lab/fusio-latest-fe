@@ -1,0 +1,35 @@
+@import '../../../../Assets/theme/_var.scss';
+
+.no_record_found {
+  padding: 3rem 1.5rem 3rem;
+  text-align: center;
+
+  svg {
+    opacity: 1;
+
+    path {
+      fill: $whiteclr;
+    }
+  }
+
+  img {
+    max-width: 30% !important;
+    margin-top: 5%;
+    width: 117.03px;
+  }
+
+  h4 {
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    color: $whiteclr;
+
+    @media (max-width: 1679px) {
+      font-size: 1.4rem;
+    }
+  }
+
+  @media (max-width: 991px) {
+    padding: 4rem 2rem;
+  }
+}

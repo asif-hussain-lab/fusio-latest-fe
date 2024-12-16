@@ -1,0 +1,14 @@
+@import "../../../../Assets/theme/_var.scss";
+
+.confirmationModal {
+    .modal-body {
+        padding-top: 0;
+
+        .commonContentModal {
+            h5 {
+                margin: 0;
+                line-height: 29px;
+            }
+        }
+    }
+}

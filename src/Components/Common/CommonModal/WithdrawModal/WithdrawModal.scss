@@ -1,0 +1,45 @@
+@import '../../../../Assets/theme/_var.scss';
+
+.withdrawModal {
+  .modal-body {
+    padding-top: 0;
+
+    .customInput .form-control {
+      margin-bottom: 1.6rem;
+      width: 10rem;
+      height: 4.5rem;
+    }
+
+    .withdrawBalance {
+      h6 {
+        font-weight: 500;
+        color: $textclr;
+        span {
+          color: $whiteclr;
+        }
+      }
+    }
+  }
+}
+.createBox {
+  background-color: $baseclr;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: $whiteclr;
+  padding: 1rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  transition: all ease-in-out 0.3s;
+
+  &:hover {
+    cursor: pointer; /* Pointer cursor on hover */
+  }
+
+  &.active,
+  &:hover {
+    background-color: $yellowclr;
+    color: $baseclr;
+  }
+}

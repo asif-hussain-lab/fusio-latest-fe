@@ -1,0 +1,613 @@
+[
+  { "inputs": [], "name": "InvalidInitialization", "type": "error" },
+  { "inputs": [], "name": "NotInitializing", "type": "error" },
+  { "inputs": [], "name": "ReentrancyGuardReentrantCall", "type": "error" },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": false, "internalType": "uint256", "name": "portfolioId", "type": "uint256" },
+      { "indexed": false, "internalType": "uint64", "name": "aumFees", "type": "uint64" },
+      { "indexed": false, "internalType": "bytes", "name": "expectedReturns", "type": "bytes" },
+      { "indexed": false, "internalType": "bytes", "name": "portfolioName", "type": "bytes" },
+      { "indexed": false, "internalType": "bytes", "name": "portfolioTicker", "type": "bytes" }
+    ],
+    "name": "AumFeesAndPortfolioUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [{ "indexed": false, "internalType": "uint256", "name": "BYOPFees", "type": "uint256" }],
+    "name": "BYOPFeesUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [{ "indexed": false, "internalType": "address", "name": "CFReceiverAddress", "type": "address" }],
+    "name": "CFReciverAddressUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [{ "indexed": false, "internalType": "address", "name": "cryptoFuelRecieverAddress", "type": "address" }],
+    "name": "CryptoFuelReciverAddressUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [{ "indexed": false, "internalType": "uint64", "name": "version", "type": "uint64" }],
+    "name": "Initialized",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": false, "internalType": "address", "name": "legacyAndBYOPReceiverAddress", "type": "address" }
+    ],
+    "name": "LegacyAndBYOPRecieverAddressUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [{ "indexed": false, "internalType": "address", "name": "orderExecution", "type": "address" }],
+    "name": "OrderExecutionUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "address", "name": "previousOwner", "type": "address" },
+      { "indexed": true, "internalType": "address", "name": "newOwner", "type": "address" }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": false, "internalType": "uint64[]", "name": "allocations", "type": "uint64[]" },
+      { "indexed": false, "internalType": "uint64", "name": "creationTime", "type": "uint64" },
+      { "indexed": false, "internalType": "uint256", "name": "portfolioId", "type": "uint256" },
+      { "indexed": false, "internalType": "address[]", "name": "currencies", "type": "address[]" },
+      { "indexed": false, "internalType": "address", "name": "createdBy", "type": "address" },
+      { "indexed": false, "internalType": "bool", "name": "isList", "type": "bool" },
+      {
+        "components": [
+          { "internalType": "uint64", "name": "portfolioType", "type": "uint64" },
+          { "internalType": "uint64", "name": "aumFees", "type": "uint64" },
+          { "internalType": "bool", "name": "isEnable", "type": "bool" },
+          { "internalType": "bytes", "name": "portfolioName", "type": "bytes" },
+          { "internalType": "bytes", "name": "portfolioTicker", "type": "bytes" },
+          { "internalType": "bytes", "name": "expectedReturns", "type": "bytes" },
+          { "internalType": "uint256", "name": "chainId", "type": "uint256" },
+          { "internalType": "address", "name": "whitlistListNfts", "type": "address" }
+        ],
+        "indexed": false,
+        "internalType": "struct portfolioLib.portfolioInfo",
+        "name": "portfolioInfo",
+        "type": "tuple"
+      }
+    ],
+    "name": "PortfolioCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": false, "internalType": "uint256", "name": "portfolioId", "type": "uint256" },
+      { "indexed": false, "internalType": "uint64[]", "name": "allocations", "type": "uint64[]" },
+      { "indexed": false, "internalType": "uint64", "name": "updateTime", "type": "uint64" },
+      { "indexed": false, "internalType": "address[]", "name": "currencies", "type": "address[]" }
+    ],
+    "name": "PortfolioCuuruAndAllocation",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": false, "internalType": "uint256", "name": "portfolioId", "type": "uint256" },
+      { "indexed": false, "internalType": "bool", "name": "isEnable", "type": "bool" }
+    ],
+    "name": "PortfolioEnableOrDisable",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": false, "internalType": "uint64", "name": "portfolioType", "type": "uint64" },
+      { "indexed": false, "internalType": "uint256", "name": "portfolioId", "type": "uint256" },
+      { "indexed": false, "internalType": "bool", "name": "isList", "type": "bool" }
+    ],
+    "name": "PortfolioListAndUnlist",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": false, "internalType": "address", "name": "WhitelistNft", "type": "address" },
+      { "indexed": false, "internalType": "uint256", "name": "chainId", "type": "uint256" }
+    ],
+    "name": "WhitListNftRemove",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": false, "internalType": "address", "name": "WhitelistNft", "type": "address" },
+      { "indexed": false, "internalType": "uint256", "name": "chainId", "type": "uint256" }
+    ],
+    "name": "WhiteListNftAdded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": false, "internalType": "address", "name": "currencies", "type": "address" },
+      { "indexed": false, "internalType": "bool", "name": "isEnable", "type": "bool" }
+    ],
+    "name": "WhitelistCurrenciesAdded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": false, "internalType": "address", "name": "currencies", "type": "address" },
+      { "indexed": false, "internalType": "bool", "name": "isEnable", "type": "bool" }
+    ],
+    "name": "currenciesEnableOrDisable",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [{ "indexed": false, "internalType": "uint256", "name": "minimumCryptoFuelFees", "type": "uint256" }],
+    "name": "minimumCryptoFuelFeesUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [{ "indexed": false, "internalType": "uint256", "name": "minimumUsdc", "type": "uint256" }],
+    "name": "minimumUsdcUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [{ "indexed": false, "internalType": "uint256", "name": "platformFees", "type": "uint256" }],
+    "name": "platformFeesUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": false, "internalType": "uint256", "name": "reBalancesMyPortfolioMinimumAmount", "type": "uint256" }
+    ],
+    "name": "reBalancesMyPortfolioMinimumFeesUpdated",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "BYOPFees",
+    "outputs": [{ "internalType": "uint64", "name": "", "type": "uint64" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "CFReceiverAddress",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "LegacyAndBYOPReceiverAddress",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "USDC",
+    "outputs": [{ "internalType": "contract IERC20", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "", "type": "address" },
+      { "internalType": "uint256", "name": "", "type": "uint256" }
+    ],
+    "name": "WhitelistNfts",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address[]", "name": "_currencies", "type": "address[]" }],
+    "name": "addWhitelistCurrency",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_nft", "type": "address" },
+      { "internalType": "uint256", "name": "_chainId", "type": "uint256" }
+    ],
+    "name": "addWhitelistNft",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "admin",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "aumFees",
+    "outputs": [{ "internalType": "uint64", "name": "", "type": "uint64" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "_newValidator", "type": "address" }],
+    "name": "changeValidator_1",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "_newValidator", "type": "address" }],
+    "name": "changeValidator_2",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "_newValidator", "type": "address" }],
+    "name": "changeValidator_3",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "_newValidator", "type": "address" }],
+    "name": "changeValidator_4",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "_newValidator", "type": "address" }],
+    "name": "changeValidator_5",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          { "internalType": "uint64", "name": "portfolioType", "type": "uint64" },
+          { "internalType": "uint64", "name": "aumFees", "type": "uint64" },
+          { "internalType": "bool", "name": "isEnable", "type": "bool" },
+          { "internalType": "bytes", "name": "portfolioName", "type": "bytes" },
+          { "internalType": "bytes", "name": "portfolioTicker", "type": "bytes" },
+          { "internalType": "bytes", "name": "expectedReturns", "type": "bytes" },
+          { "internalType": "uint256", "name": "chainId", "type": "uint256" },
+          { "internalType": "address", "name": "whitlistListNfts", "type": "address" }
+        ],
+        "internalType": "struct portfolioLib.portfolioInfo",
+        "name": "_portfolioInfo",
+        "type": "tuple"
+      },
+      { "internalType": "uint64", "name": "_ProspectorNftId", "type": "uint64" },
+      { "internalType": "uint64[]", "name": "_allocations", "type": "uint64[]" },
+      { "internalType": "address[]", "name": "_currencies", "type": "address[]" },
+      { "internalType": "bytes[]", "name": "_signature", "type": "bytes[]" }
+    ],
+    "name": "createPortfolio",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "cryptoFuelRecieverAddress",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "_currencies", "type": "address" }],
+    "name": "enableOrDisableCurrency",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "_portfolioId", "type": "uint256" }],
+    "name": "enableOrDisablePortfolio",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "_portfolioId", "type": "uint256" }],
+    "name": "getCurrAndAllocOfPortfolio",
+    "outputs": [
+      { "internalType": "address[]", "name": "", "type": "address[]" },
+      { "internalType": "uint64[]", "name": "", "type": "uint64[]" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_owner", "type": "address" },
+      { "internalType": "address", "name": "_USDC", "type": "address" },
+      { "internalType": "address[]", "name": "_admin", "type": "address[]" }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint64", "name": "", "type": "uint64" }],
+    "name": "isCurrFundCreatedBasedOnId",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "", "type": "address" },
+      { "internalType": "uint256", "name": "", "type": "uint256" },
+      { "internalType": "uint256", "name": "", "type": "uint256" }
+    ],
+    "name": "isCurrFundCreatedBasedOnWhitelistNftId",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "isWhitelistCurrencies",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "_portfolioId", "type": "uint256" }],
+    "name": "listAndUnlistPortfolio",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "listAndUnlistPortfolioMapping",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "minimumCryptoFuelFees",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "minimumUsdc",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "onOrOffCurrencies",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "onOrOffPortfolio",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "orderExecution",
+    "outputs": [{ "internalType": "contract IOrderExecutions", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "platformFees",
+    "outputs": [{ "internalType": "uint64", "name": "", "type": "uint64" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "portfolioCounter",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "portfolioDetailsMapping",
+    "outputs": [
+      { "internalType": "uint64", "name": "portfolioType", "type": "uint64" },
+      { "internalType": "uint64", "name": "aumFees", "type": "uint64" },
+      { "internalType": "bytes", "name": "expectedReturns", "type": "bytes" },
+      { "internalType": "address", "name": "creator", "type": "address" },
+      { "internalType": "bool", "name": "enableOrDisable", "type": "bool" },
+      { "internalType": "bool", "name": "isPortfolioExisting", "type": "bool" },
+      { "internalType": "bytes", "name": "portfolioName", "type": "bytes" },
+      { "internalType": "bytes", "name": "portfolioTicker", "type": "bytes" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "portfolioOwner",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "portfolioTypeMapping",
+    "outputs": [{ "internalType": "uint64", "name": "", "type": "uint64" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "reBalancesMyPortfolioMinimumAmount",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_nft", "type": "address" },
+      { "internalType": "uint256", "name": "_chainId", "type": "uint256" }
+    ],
+    "name": "removeWhitelistNft",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "_orderExecution", "type": "address" }],
+    "name": "setOrderExecution",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "newOwner", "type": "address" }],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_portfolioId", "type": "uint256" },
+      { "internalType": "uint64", "name": "_aumFees", "type": "uint64" },
+      { "internalType": "bytes", "name": "_expectedReturns", "type": "bytes" },
+      { "internalType": "bytes", "name": "_name", "type": "bytes" },
+      { "internalType": "bytes", "name": "_portfolioTicker", "type": "bytes" },
+      { "internalType": "bytes[]", "name": "_signature", "type": "bytes[]" }
+    ],
+    "name": "updateAumFeeAndPortfolioName",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint64", "name": "_BYOPFees", "type": "uint64" }],
+    "name": "updateBYOPFees",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "_CFReceiverAddress", "type": "address" }],
+    "name": "updateCFReciverAddress",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "_cryptoFuelRecieverAddress", "type": "address" }],
+    "name": "updateCryptoFuelReciverAddress",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_portfolioId", "type": "uint256" },
+      { "internalType": "uint64[]", "name": "_allocations", "type": "uint64[]" },
+      { "internalType": "address[]", "name": "_currencies", "type": "address[]" },
+      { "internalType": "bytes[]", "name": "_signature", "type": "bytes[]" }
+    ],
+    "name": "updateCurrAndAllocOfPortfolio",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "_LegacyAndBYOPReceiverAddress", "type": "address" }],
+    "name": "updateLegacyAndBYOPRecieverAddress",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "_minimumCryptoFuelFees", "type": "uint256" }],
+    "name": "updateMinimumCryptoFuelFees",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "_minimumUsdc", "type": "uint256" }],
+    "name": "updateMinimumUsdc",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint64", "name": "_platformFees", "type": "uint64" }],
+    "name": "updatePlatformFees",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "_reBalancesMyPortfolioMinimumAmount", "type": "uint256" }],
+    "name": "updateReBalancesMyPortfolioMinimumFees",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "updatednonce",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_assets", "type": "address" },
+      { "internalType": "uint256", "name": "_amount", "type": "uint256" }
+    ],
+    "name": "withdrawAssets",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

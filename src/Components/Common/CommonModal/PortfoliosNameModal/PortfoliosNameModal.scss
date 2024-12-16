@@ -1,0 +1,26 @@
+@import "../../../../Assets/theme/_var.scss";
+
+.portfoliosnameModal {
+    .modal-body {
+        padding-top: 1rem;
+
+        .commonContentModal {
+            ol {
+                padding-left: 2rem;
+
+                li {
+                    padding-bottom: 1.5rem;
+                    color: $whiteclr;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+
+                    a {
+                    color: $yellowclr !important;
+                    }
+                }
+            }
+        }
+    }
+}

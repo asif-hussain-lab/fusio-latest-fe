@@ -1,0 +1,171 @@
+@import "../../../Assets/theme/_var.scss";
+table {
+    border-collapse: separate; // Separate borders for proper spacing
+    border-spacing: 0; // Optional: Adjust for spacing if needed
+    border-radius: 15px; // Apply border radius to the entire table
+    overflow: hidden; // Ensure content respects the border radius
+}
+
+
+.tableless {
+    path {
+        fill: #18749D;
+    }
+    .common_table {
+        tbody{
+            
+        }
+        tr {
+            th,
+            td {
+                padding: 1.5rem 1.5rem;
+                white-space: nowrap;
+                vertical-align: middle;
+
+                &:first-child {
+                    padding: 1.5rem 3rem;
+
+                    @media(max-width: 991px) {
+                        padding: 1.5rem 1.5rem;
+                    }
+
+                    @media(max-width: 575px) {
+                        padding: 1.2rem 1.5rem;
+                    }
+                }
+
+                &:last-child {
+                    padding: 1.5rem 3rem;
+
+                    @media(max-width: 991px) {
+                        padding: 1.5rem 1.5rem;
+                    }
+
+                    @media(max-width: 575px) {
+                        padding: 1.2rem 1.5rem;
+                    }
+                }
+
+                .clickIcon {
+                    cursor: pointer;
+                }
+            }
+
+            td {
+                font-weight: 500 !important;
+
+            }
+        }
+
+        thead {
+            border: none;
+
+            tr {
+                th {
+                    background-color: $tablebg;
+                    border-right: none;
+                    border-left: none;
+                    font-size: 1.4rem;
+                    font-weight: 500;
+                    color: $textclr;
+                    border-bottom: none;
+
+                    @media (max-width: 767px) {
+                        font-size: 1.4rem;
+                    }
+                }
+            }
+        }
+
+        tbody {
+
+            tr {
+                
+
+                &:last-child {
+                   
+                }
+            }
+
+            td {
+                background: $cardbgclrtbl;
+                font-size: 1.4rem;
+                font-weight: 500;
+                border: 1px solid #9D9C9C;
+
+                @media (max-width: 1679px) {
+                    font-size: 1.4rem;
+                }
+
+                @media (max-width: 767px) {
+                    font-size: 1.3rem;
+                }
+
+                a {
+                    color: #18749D;
+                }
+
+                .currencyAddress {
+                    display: flex;
+                    align-items: center;
+
+                    .svgicon {
+                        width: 2rem;
+                        display: inline-flex;
+
+                        svg {
+                            width: 1.5rem;
+                            height: 1.5rem;
+
+                            path {
+                                fill: #18749D;
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            tr {
+                &.no_record {
+                    td {
+                        padding: 1.5rem 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.no_record_box {
+    padding: 5rem 1.5rem;
+    text-align: center;
+
+    svg {
+        opacity: 1;
+
+        path {
+            fill: $whiteclr;
+        }
+    }
+
+    img {
+        width: 150px !important;
+    }
+
+    h4 {
+        font-size: 1.6rem;
+        font-weight: 600;
+        margin-top: 1rem;
+        color: $whiteclr;
+
+        @media (max-width: 1679px) {
+            font-size: 1.4rem;
+        }
+    }
+
+    @media (max-width: 991px) {
+        padding: 4rem 2rem;
+    }
+}

@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+$baseFont: 'Open Sans', sans-serif;
+
+$baseclr: #18749D;
+$blackclr: #000000;
+$whiteclr: #ffffff;
+$blurdarkclr: #0B2642;
+$blurdarkclrT: rgba(5, 27, 55, 0.8);
+$borderclr: rgba(255, 255, 255, 0.17);;
+$greyclr: rgba(13, 14, 11, 0.47);
+$greybg: rgba(235, 235, 235, 1);
+$textclr: #ffffff;
+$cardbgclr: #18749D;
+$cardbgclrtbl: linear-gradient(136.3deg, rgba(255, 255, 255, 0.149) 0%, rgba(255, 255, 255, 0.012) 118.86%);
+$inputbgclr:#374F58;
+$hoverbgclr:#00B2FF;
+$green: #6CC5AA;
+$redclr: #dd2f3e; 
+$greenclr: #67DD30;
+$greenclr1: #4CAF50;
+$yellowclr: #00B2FF;
+$tablebg:#18749D;
+$darkblue:#051B37;
+$darkbluedrop:#5FBFA9;
+$darkblue1:#0D2945;
+$navyblue:#025A8E;
+$lightblue: #00e1ff;
+$redlightbgclr: rgba(255, 118, 118, 0.2);
+// $gradientbasebg: linear-gradient(74deg, #213B4F 0.73%, #0B2743 59.07%, #00122E 100%);
+$gradientbasebg: #F0F0F0;
+$radialgradientbg: radial-gradient(66.15% 66.07% at 50% 46.9%, rgba(3, 11, 17, 0.00) 0%, #0D1F2D 100%);
+$gradientclr: linear-gradient(180deg, #F5DF71 0%, #139C94 100%);
+$gradientcardbg: #18749D;
+// $gradientcardbg: linear-gradient(136.3deg, rgba(255, 255, 255, 0.149) 0%, rgba(255, 255, 255, 0.012) 118.86%);
+$gradientboxclr: linear-gradient(134.33deg, rgba(255, 255, 255, 0.149) 0%, rgba(49, 143, 161, 0.69) 98.89%);
+$gradienticonclr: linear-gradient(179deg, #FAE170 -65.02%, #6CC5AA 115.91%);
+$gradienticonclr1: linear-gradient(197deg, #03E2A0 -22.48%, #061D39 94%);
+$gradientinputbg:linear-gradient(90deg, #374F58 34.07%, rgba(8, 31, 58, 0.00) 137.14%);
+$gradientinputactive:linear-gradient(90deg, #FAE170 34.07%, rgba(8, 31, 58, 0.00) 137.14%);
+$gradientclrbox1: linear-gradient(7deg, #03E2A0 10.84%, #032043 138.54%);
+$gradientclrbox2: linear-gradient(180deg, #CEB234 -13.76%, #0E986E 111.36%); 
+$gradientclrbox3: linear-gradient(151deg, #48D39D -6.83%, #CFE448 98.39%);
+$gradientclrbox4: linear-gradient(136.3deg, rgba(255, 255, 255, 0.149) 0%, rgba(255, 255, 255, 0.012) 118.86%);
+$IMAGE_BASE_URL : "https: //d20dnxsie2ggx1.cloudfront.net/Images/"

@@ -1,0 +1,36 @@
+@import "../../../Assets/theme/_var.scss";
+
+.backbtn {
+    margin-bottom: 2.5rem;
+
+    button {
+        display: flex;
+        background-color: transparent;
+        align-items: center;
+        color: $whiteclr;
+        font-size: 1.6rem;
+        font-weight: 600;
+        line-height: 140%;
+        letter-spacing: 0.2px;
+        transition: all ease-in-out 0.3s;
+        border: none;
+        padding: 0;
+
+        svg {
+            margin-right: 1rem;
+            transition: all ease-in-out 0.3s;
+        }
+
+        &:hover {
+            color: $yellowclr;
+
+            svg {
+                transform: translateX(2px);
+
+                path {
+                    stroke: $yellowclr;
+                }
+            }
+        }
+    }
+}

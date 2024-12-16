@@ -1,0 +1,97 @@
+@import "../../../Assets/theme/_var.scss";
+
+.customDropdown {
+    display: flex;
+    align-items: center;
+    border-radius: 0.8rem;
+    background-color: #18749D;
+    padding: 0;
+    position: relative;
+
+    .customIcon {
+        margin-left: 1rem;
+    }
+
+    .Dropdown {
+
+        &-root {
+            position: static;
+            width: 100%;
+        }
+
+        &-control {
+            padding: 1rem 4rem 1rem 1rem;
+            background-color: transparent;
+            border: 0;
+            color: $whiteclr;
+            font-size: 1.4rem;
+            font-weight: 500;
+            border-radius: 0;
+            cursor: pointer;
+        }
+
+        &-placeholder {
+            font-weight: 600;
+        }
+
+        &-arrow-wrapper {       
+            .Dropdown-arrow {
+                top: 1.7rem;
+                right: 1.3rem;
+                background-image: url($IMAGE_BASE_URL+"Icons/whitearrow.svg");
+                width: 1.2rem;
+                height: 0.8rem;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 1.2rem;
+                border: none;
+                transition: all ease-in-out 0.3s;
+            }
+        }
+
+        &-menu {
+            left: 0;
+            border-radius: 0.8rem;
+            background-color: $darkblue;
+            padding: 1.2rem;
+            border: 0;
+            margin-top: 0rem;
+
+            .Dropdown-option {
+                color: $textclr;
+                transition: all ease-in-out 0.3s;
+                padding: 0.5rem 0rem;
+                font-size: 1.4rem;
+                background-color: transparent;
+                position: relative;
+                font-weight: 600;
+
+                &:focus,
+                &.is-selected {
+                    color: $whiteclr;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        right: 0rem;
+                        top: 1.3rem;
+                        background-image: url($IMAGE_BASE_URL+"Icons/greencheck.svg");
+                        width: 1rem;
+                        height: 0.7rem;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: 1rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .is-open {
+        .Dropdown-arrow-wrapper {
+            .Dropdown-arrow {
+                rotate: (-180deg);
+            }
+        }
+    }
+}

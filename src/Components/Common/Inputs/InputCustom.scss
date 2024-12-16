@@ -1,0 +1,167 @@
+@import '../../../Assets/theme/_mixins.scss';
+
+.form-label,
+.form-check-label {
+    color: $blackclr; 
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 0.8rem;
+
+    @media (max-width:767px) {
+        font-size: 1.4rem;
+    }
+}
+
+.customInput {
+    margin-bottom: 2.5rem;
+    line-height: normal;
+
+    @media (max-width:767px) {
+        margin-bottom: 1.5rem;
+    }
+
+    &_inner {
+        position: relative;
+
+        .allocP {
+            position: absolute;
+            top: 13px;
+            right: 1.5rem;
+            color: #ffffff;
+            font-size: 1.6rem;
+            font-weight: 500;
+        }
+    }
+
+    label {
+        display: block;
+        color: $whiteclr;
+        font-size: 1.6rem;
+        font-weight: 500;
+        line-height: normal;
+        margin-bottom: 0.8rem;
+    }
+
+    .form-control {
+        height: 5rem;
+        box-shadow: none;
+        outline: none;
+        width: 100%;
+        padding: 1rem 2rem;
+        border-radius: 5px;
+        border: 1px solid $borderclr;
+        background-color: #18749D;
+        color: $whiteclr;
+        font-size: 1.5rem;
+
+        @media (max-width:1599px) {
+            height: 4.5rem;
+            font-size: 1.4rem;
+            padding: 1rem 1.5rem;
+        }
+
+        &.is-invalid {
+            border-color: $redclr;
+        }
+
+        &:hover {
+            appearance: none;
+        }
+
+        &::placeholder {
+            color: $textclr;
+            opacity: "50%";
+        }
+
+        &:focus {
+            box-shadow: none;
+        }
+
+        &.passwordInput {
+            padding-right: 7rem;
+        }
+    }
+
+    &.passwordInput {
+        .form-control {
+            padding-right: 6rem;
+        }
+    }
+
+    .eyeIcon {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        display: flex;
+
+        svg {
+            width: 2rem;
+            height: 2rem;
+
+            path {
+                fill: $whiteclr;
+            }
+        }
+    }
+}
+
+.checkbox_input {
+    .form-check {
+        margin-bottom: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+
+        .form-check-input {
+            float: unset;
+            margin: 0;
+            box-shadow: none;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+
+        }
+
+        .form-check-label {
+            line-height: 1;
+            margin-left: 10px;
+        }
+
+        &.form-switch {
+            .form-check-input {
+                width: 2.7rem;
+                height: 1.6rem;
+                // background-color: $inputbgclr;
+                border-color: $inputbgclr;
+                background-image: url('../../../Assets/Images/Icons/whitedot.svg');
+                background-size: 1.4rem;
+
+                &:focus {
+                    background-color: $inputbgclr;
+                    border-color: $inputbgclr;
+                    background-image: url('../../../Assets/Images/Icons/whitedot.svg');
+                }
+
+                &:checked {
+                    background-color: $greenclr1;
+                    border-color: $greenclr1;
+                    background-image: url('../../../Assets/Images/Icons/whitedot.svg');
+                }
+
+
+            }
+        }
+    }
+}
+
+.error-message {
+    color: $redclr;
+    font-size: 1.4rem;
+    line-height: normal;
+    display: block;
+    padding-top: 0.5rem;
+    font-weight: 600;
+}

@@ -1,0 +1,11 @@
+@import "../../../Assets/theme/_var.scss";
+
+.toster-bar{
+  background-color: $baseclr !important;
+
+  div{
+    font-size: 1.6rem;
+    color: $whiteclr;
+    font-weight: 600;
+  }
+}

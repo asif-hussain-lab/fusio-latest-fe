@@ -1,0 +1,9 @@
+@import '../../../Assets/theme/_mixins.scss';
+
+.common_heading {
+    h2 {
+        font-size: 2rem;
+        line-height: normal;
+        color: $whiteclr;
+    }
+}

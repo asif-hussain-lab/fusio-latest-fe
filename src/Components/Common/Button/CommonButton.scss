@@ -1,0 +1,95 @@
+@import '../../../Assets/theme/_mixins.scss';
+.iconSpace{
+margin-right: 1.2rem;
+display: inline-flex;
+}
+
+.btn-style,
+.btn-primary {
+    min-height: 5rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: $baseFont;
+    border-radius: 5px;
+    padding: 0.8rem 2.5rem;
+    font-size: 1.6rem;
+    background-color: $yellowclr;
+    border: 0;
+    text-transform: capitalize;
+    transition: all ease-in-out 0.3s;
+    min-width: 15rem;
+    color: $whiteclr;
+
+    @media (max-width:1599px) {
+        min-height: 4.5rem;
+    }
+
+    &:hover {
+        border-radius: 5px;
+        background-color: $yellowclr;
+        color: $baseclr;
+
+        .onlyIcon {
+            background-color: $baseclr;
+            border-radius: 5px;
+        }
+    }
+
+    &.transparent {
+        background-color: transparent;
+        border: none;
+    }
+
+    &.view-btn {
+        min-height: 2rem !important; 
+        min-width: auto;
+        font-size: 1.4rem;
+    }
+
+    &.white-btn {
+        background-color: $whiteclr;
+
+        &:hover {
+            background-color: $yellowclr;
+        }
+    }
+
+    &.greendark-btn {
+        background-color: $baseclr;
+        color: $green;
+
+        &:hover {
+            background-color: $yellowclr;
+            color: $baseclr;
+        }
+    }
+
+    .onlyIcon {
+        margin-right: 0.7rem;
+        display: inline-flex;
+         &:hover {
+            background-color: $baseclr;
+            border-radius: 15px;
+        }
+        
+
+    }
+
+    &:disabled {
+        background-color: $yellowclr;
+        color: $baseclr;
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+}
+
+span.spinner-border {
+    margin-left: 5px;
+}
+
+.not-allowed {
+    pointer-events: none;
+    cursor: default;
+}

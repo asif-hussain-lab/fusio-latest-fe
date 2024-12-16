@@ -1,0 +1,96 @@
+@import "../../../../Assets/theme/_var.scss";
+
+.notificationView {
+    padding: 5rem 0;
+
+    @media (max-width:767px) {
+        padding: 4rem 0;
+    }
+
+    &_notiList {
+        margin-top: 2rem;
+
+        li {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            border-bottom: 1px solid $borderclr;
+            padding: 2.5rem 0;
+
+            &:last-child {
+                margin-bottom: 0;
+                padding-bottom: 0;
+                border-bottom: 0;
+            }
+
+            @media (max-width:767px) {
+                padding: 1.5rem 0;
+            }
+
+            .noticontent {
+                width: calc(100% - 20rem);
+                display: flex;
+                align-items: center;
+
+                @media (max-width:767px) {
+                    width: 100%;
+                }
+
+                p {
+                    color: $whiteclr;
+                    padding-left: 1rem;
+                }
+
+                button {
+                    background: transparent;
+                    border: none;
+                    border-radius: 0.6rem;
+                    padding: 0rem 1rem;
+                    font-size: 1.4rem;
+                    line-height: 1;
+                    font-weight: 600;
+                    color: $yellowclr;
+                    text-transform: capitalize;
+                    margin-left: 0rem;
+
+                    &:hover {
+                        color: $green;
+                    }
+                }
+            }
+
+            h6 {
+                font-weight: 400;
+                color: $yellowclr;
+                text-align: right;
+                width: 20rem;
+                padding-left: 1rem;
+
+                @media (max-width:767px) {
+                    width: 100%;
+                    margin-top: 1rem;
+                }
+            }
+        }
+    }
+
+    .token_icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: $whiteclr;
+        flex-shrink: 0;
+        border-radius: 10rem;
+        box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.03);
+
+        svg {
+            width: 1.8rem;
+
+            path {
+                fill: $baseclr;
+            }
+        }
+    }
+}
