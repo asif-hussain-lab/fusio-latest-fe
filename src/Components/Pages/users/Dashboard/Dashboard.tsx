@@ -20,9 +20,11 @@ import './Dashboard.scss'
 import NoRecordInvestment from '../../../Common/NoRecord/NoRecordInvestment'
 import { COUNTRY_TO_RESTRICT } from '../../../../Utils/Utils'
 import RestrictionModal from '../../../Common/CommonModal/RestrictionModal'
+import PercentageChange from '../../../Common/PercentageChange/PercentageChange'
 
 const UserDashboard = () => {
   const dispatch: Dispatch<any> = useDispatch()
+  const [whitelistedTokenList, setWhitelistedTokenList] = useState<any>([])
   const country = useSelector((state: any) => state.user.country)
   const walletAddress = useSelector((state: any) => state.user.walletAddress)
   const tokenDecimals = useSelector((state: any) => state.token.tokenDecimals)
@@ -45,6 +47,27 @@ const UserDashboard = () => {
       setShowDisclaimer(true)
     }
   }, [])
+
+  useEffect(() => {
+    getWhitelistedTokenList()
+}, [])
+
+const getWhitelistedTokenList = useCallback(
+  async (page: number = 1, loading = true) => {
+    const obj: { page: number; limit: number } = {
+      page: page,
+      limit: 107,
+    }
+    if (loading) setLoading(true)
+    let result: any = await dispatch(callApiGetMethod('GET_WHITELISTED_TOKENS', obj, false))
+    if (result?.success) {
+      setWhitelistedTokenList(result?.data?.docs)
+      
+    }
+    setLoading(false)
+  },
+  [dispatch]
+)
 
   const getAllInvestments = useCallback(
     async (loading = true) => {
@@ -251,6 +274,38 @@ const UserDashboard = () => {
                   </Tab.Content>
                 </Tab.Container>
               )}
+              <div className="commonTopbar d-md-flex align-items-center justify-content-between mobileHeight" style={{marginTop:'1.8rem'}}>
+                <Nav className="tab_sec Border_Tabs">
+                  <Nav.Item>
+                    <Nav.Link >All Assets</Nav.Link>
+                  </Nav.Item>
+                </Nav>
+              </div>
+              <div className="coinListD">
+                  <div className="coinList_listBox" style={{height: 'auto'}}>
+                    <Row>
+                    {whitelistedTokenList?.map((item: any, index: number) => (
+                      <Col xs={3} key={item._id}>
+                        <div className="CoinList_card">
+                          <div className="coin_info">
+                            <img src={item?.icon} alt="Currency-Logo" className="currencyLogo" />
+                            <h6>{item?.name}</h6>
+                            <h6>({item?.symbol})</h6>
+                          </div>
+                          <div className="coin_info">
+                            <PercentageChange
+                              changeStatus={item?.tokenPriceInfo?.priceStatus}
+                              percentageChange={item?.tokenPriceInfo?.percentageChange}
+                              toolTipText="Changes in last 1 hour"
+                            />
+                          </div>
+                        </div>
+                      </Col>
+                    ))}
+                    </Row>
+                  </div>
+                </div>
+
             </Tab.Pane>
             <Tab.Pane eventKey="transactionhistory">
               {activeKey === 'transactionhistory' && <TransactionHistoryTable />}
@@ -263,7 +318,9 @@ const UserDashboard = () => {
             </Tab.Pane>
           </Tab.Content>
         </Tab.Container>
+              
       </Container>
+
       <RestrictionModal show={showDisclaimer} handleClose={handleDisclaimerClose} heading="Regulation">
         <p className="custom-p">
           Due to regulatory and compliance, any resident residing within the USA are restricted from access.

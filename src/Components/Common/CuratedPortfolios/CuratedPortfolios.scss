@@ -1,0 +1,42 @@
+.curatedPortfolios {
+  & > section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    & > div {
+      flex: 1 1 calc(18% - 1.5rem);
+      & > figure {
+        height: 7rem;
+      }
+      & > * {
+        &:nth-child(2) {
+          font-size: 1.4rem;
+          font-weight: 500;
+          color: rgba(24, 116, 157, 1);
+          margin-top: 1.2rem;
+          padding-bottom: 0.7rem;
+        }
+        &:last-child {
+          font-weight: 500;
+          color: rgba(54, 54, 54, 1);
+        }
+      }
+    }
+  }
+  & > div {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    margin-top: 1.8rem;
+    & > p {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: rgba(24, 116, 157, 1);
+    }
+    & > a {
+      font-size: 1.6rem;
+      font-weight: 500;
+      text-decoration: underline;
+    }
+  }
+}

@@ -70,57 +70,8 @@ const Login = () => {
   })
 
   return (
-    <div className="login_page">
-      <Container fluid>
-        <div className="loginBox">
-          <div className="login_page_box commonCardbox">
-            <img src={logoAdmin} className="d-inline-block sidebarLogo" alt="logo" />
-            <h2>Login to Fusio</h2>
-            <Form onSubmit={formik.handleSubmit}>
-              <InputCustom
-                label="Email"
-                className=""
-                id="email"
-                name="email"
-                type="text"
-                placeholder="Enter email"
-                onChange={(e: any) => {
-                  formik.handleChange(e)
-                }}
-                autoFocus={true}
-                value={formik.values.email}
-                isInvalid={formik.touched.email && !!formik.errors.email}
-                error={
-                  formik.errors.email && formik.touched.email ? (
-                    <span className="error-message">{formik.errors.email}</span>
-                  ) : null
-                }
-              />
-              <InputCustom
-                label="Password"
-                id="password"
-                className="passwordInput"
-                type="password"
-                placeholder="Enter password"
-                onChange={(e: any) => {
-                  formik.handleChange(e)
-                }}
-                value={formik.values.password}
-                isInvalid={formik.touched.password && !!formik.errors.password}
-                error={
-                  formik.errors.password && formik.touched.password ? (
-                    <span className="error-message">{formik.errors.password}</span>
-                  ) : null
-                }
-              />
-              <div className="text-center">
-                <ConnectWallet />
-                <CommonButton type="submit" title="Login" />
-              </div>
-            </Form>
-          </div>
-        </div>
-      </Container>
+    <div className="">
+      
     </div>
   )
 }

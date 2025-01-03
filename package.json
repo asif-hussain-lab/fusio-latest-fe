@@ -1,6 +1,6 @@
 {
   "name": "fusio-wealth-management",
-  "version": "0.0.0",
+  "version": "0.0.4",
   "private": true,
   "dependencies": {
     "@canvasjs/charts": "^3.10.18",
@@ -16,6 +16,7 @@
     "axios": "^1.3.4",
     "bignumber.js": "^9.1.1",
     "bootstrap": "^5.2.3",
+    "chart.js": "^4.4.7",
     "compress-create-react-app": "^1.3.0",
     "copy-to-clipboard": "^3.3.3",
     "crypto-js": "^4.2.0",
@@ -24,11 +25,13 @@
     "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.2",
+    "react-chartjs-2": "^5.3.0",
     "react-countdown": "^2.3.5",
     "react-dom": "^18.2.0",
     "react-dropdown": "^1.11.0",
     "react-fast-marquee": "^1.6.2",
     "react-hot-toast": "^2.4.0",
+    "react-icons": "^5.4.0",
     "react-loader-spinner": "^5.3.4",
     "react-rangeslider": "^2.2.0",
     "react-redux": "^8.0.5",
@@ -49,7 +52,7 @@
     "yup": "^1.0.2"
   },
   "scripts": {
-    "start": "PORT=3006 react-app-rewired start",
+    "start": "PORT=3000 react-app-rewired start",
     "build": "node generate-buildno.ts && GENERATE_SOURCEMAP=false react-app-rewired build && compress-cra",
     "test": "react-app-rewired test --transformIgnorePatterns \"node_modules/(?!axios)/\"",
     "eject": "react-app-rewired eject",

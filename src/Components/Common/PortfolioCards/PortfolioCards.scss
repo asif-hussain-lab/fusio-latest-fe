@@ -1,0 +1,31 @@
+.portfolioCard {
+  background-color: rgba(24, 116, 157, 1);
+  border-radius: 1.2rem;
+  box-shadow: 12.53px 12.53px 41.76px 8px rgba(6, 6, 6, 0.3);
+  margin-top: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1.5rem;
+  & > img {
+    height: 14.1rem;
+    width: 14.1rem;
+    border-radius: 50%;
+    margin-top: -8rem;
+  }
+  & > h1 {
+    font-size: 2.237rem;
+    font-weight: 400;
+    line-height: 2.769rem;
+    margin-top: 0.7rem;
+    margin-bottom: 0.3rem;
+    color: white;
+  }
+  & > p {
+    font-size: 1.253rem;
+    font-weight: 400;
+    color: white;
+    line-height: 1.516rem;
+  }
+}

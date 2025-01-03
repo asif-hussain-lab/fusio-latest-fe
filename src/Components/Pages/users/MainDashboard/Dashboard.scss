@@ -1,117 +1,203 @@
-@import "../../../../Assets/theme/_var.scss";
+@import '../../../../Assets/theme/_var.scss';
 
 .commonContentModal {
-    h4 {
-        color: $blackclr;
-        font-weight: 600;
-        font-size: 22px;
+  h4 {
+    color: $blackclr;
+    font-weight: 600;
+    font-size: 22px;
+  }
+
+  .card {
+    border: none;
+    border-radius: 12.25px;
+  }
+  & > div {
+    & > div {
+      border: 2px solid rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+.marketTrend {
+  display: flex;
+  gap: 4rem;
+  margin-top: 3.7rem;
+  & > div {
+    & > h1 {
+      font-size: 2rem;
+      font-weight: 500;
+      line-height: 2.72rem;
+    }
+    & > section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 3rem;
+      & > div {
+        flex: 1 1 calc(50% - 1.5rem);
+      }
+    }
+    & > div {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      margin-top: 1.8rem;
+      & > div {
+        flex: 1 1 calc(33.3% - 2.5rem);
+      }
+    }
+  }
+
+  & > * {
+    &:first-child {
+      width: 45%;
+    }
+    &:last-child {
+      width: 55%;
+    }
+  }
+}
+
+.dashboardCharts {
+  display: flex;
+  gap: 4rem;
+  margin-top: 3.7rem;
+
+  & > div {
+    
+    & > h1 {
+      font-size: 2rem;
+      font-weight: 500;
+      line-height: 2.72rem;
+    }
+    & > section {
+      margin-top: 3rem;
+      background-color: white;
+      border-radius: 1.2rem;
+      padding: 1.8rem 2.4rem;
+      box-shadow: 8.88px 8.88px 31.71px 0px rgba(0, 0, 0, 0.25);
+      & > * {
+        width: 100%;
+      }
     }
 
-    
-    .card {
-        border: none;
-        border-radius: 12.25px;
+    & > div {
+      padding: 1.8rem 2.4rem;
+      margin-top: 3rem;
+      background-color: white;
+      border-radius: 1.2rem;
+      box-shadow: 8.88px 8.88px 31.71px 0px rgba(0, 0, 0, 0.25);
     }
+  }
+
+  & > * {
+    &:first-child {
+      width: 45%;
+    }
+    &:last-child {
+      width: 55%;
+    }
+  }
 }
 
 .cardCustom {
-    box-shadow: 0px 23px 56.3px 0px #00000033;
+  box-shadow: 0px 23px 56.3px 0px #00000033;
 }
 
 .dashboardUser {
-    padding-bottom: 4rem;
+  padding-bottom: 4rem;
 }
 
 .allInvestmentcard {
-    background: $gradientcardbg;
-    border-radius: 1.6rem;
-    box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.03);
-    padding: 3rem 0;
+  background: $gradientcardbg;
+  border-radius: 1.6rem;
+  box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.03);
+  padding: 3rem 0;
+  height: 60rem;
+
+  @media (max-width: 1699px) {
     height: 60rem;
+  }
 
-    @media (max-width:1699px) {
-        height: 60rem;
-    }
+  h5 {
+    padding: 0 0 3.6rem 1.6rem;
+  }
 
-    h5 {
-        padding: 0 0 3.6rem 1.6rem;
-    }
-
-    &_scrollList {
-        max-height: 48.5rem;
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
+  &_scrollList {
+    max-height: 48.5rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 }
 
 .dashboard_invecards {
-    @media (max-width:767px) {
-        margin-bottom: 1rem;
-    }
+  @media (max-width: 767px) {
+    margin-bottom: 1rem;
+  }
 }
 
 .tradeImg {
-    border-radius: 20px;
+  border-radius: 20px;
 }
 
 .AssetDetail_card {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.6rem 2rem;
+  border: 1px solid $borderclr;
+  margin-top: 5px;
+
+  @media (max-width: 1899px) {
+    padding: 1.5rem 1rem;
+  }
+
+  @media (max-width: 1399px) {
+    flex-wrap: wrap;
+  }
+
+  a {
+    color: $whiteclr;
+    margin-left: 0.8rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+
+    &:hover {
+      color: $yellowclr;
+      transition: all ease-in-out 0.3s;
+    }
+
+    @media (min-width: 1440px) and (max-width: 1699px) {
+      font-size: 1rem;
+    }
+  }
+
+  .asset_info {
     display: flex;
-    justify-content: space-between;
-    padding: 1.6rem 2rem;
-    border: 1px solid $borderclr;
-    margin-top: 5px;
+    align-items: center;
 
-    @media (max-width: 1899px) {
-        padding: 1.5rem 1rem;
+    @media (min-width: 1200px) and (max-width: 1399px) {
+      width: 100%;
+      margin-bottom: 0.5rem;
     }
 
-    @media (max-width: 1399px) {
-        flex-wrap: wrap;
+    h6 {
+      margin-left: 0.8rem;
+      font-size: 1.4rem;
+
+      @media (min-width: 1440px) and (max-width: 1699px) {
+        font-size: 1rem;
+      }
     }
 
-    a {
-        color: $whiteclr;
-        margin-left: 0.8rem;
-        font-size: 1.4rem;
-        font-weight: 600;
+    .currencyLogo {
+      border-radius: 100%;
+      width: 35px;
+      height: 35px;
 
-        &:hover {
-            color: $yellowclr;
-            transition: all ease-in-out 0.3s;
-        }
-
-        @media (min-width: 1440px) and (max-width: 1699px) {
-            font-size: 1rem;
-        }
+      @media (max-width: 1799px) {
+        width: 25px;
+        height: 25px;
+      }
     }
-
-    .asset_info {
-        display: flex;
-        align-items: center;
-
-        @media (min-width: 1200px) and (max-width: 1399px) {
-            width: 100%;
-            margin-bottom: 0.5rem;
-        }
-
-        h6 {
-            margin-left: 0.8rem;
-            font-size: 1.4rem;
-
-            @media (min-width: 1440px) and (max-width: 1699px) {
-                font-size: 1rem;
-            }
-        }
-
-        .currencyLogo {
-            border-radius: 100%;
-            width: 35px;
-            height: 35px;
-
-            @media (max-width: 1799px) {
-                width: 25px;
-                height: 25px;
-            }
-        }
-    }
+  }
 }
