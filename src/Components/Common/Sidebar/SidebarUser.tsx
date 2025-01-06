@@ -88,6 +88,15 @@ const SidebarUser = ({ handleSidebar }: { handleSidebar?: () => void }) => {
             Rebalance Requests
           </NavLink>
         </li>
+        <li>
+        <NavLink
+            to="/explore"
+            className='btn-style btn-sidebar'
+            onClick={handleSidebar}
+          >
+            Explore
+          </NavLink>
+        </li>
       </ul>
     </aside>
   )

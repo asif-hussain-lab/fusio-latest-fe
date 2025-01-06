@@ -54,7 +54,7 @@ const NoRecord = ({
     content = (
       <div className="no_record_found">
         <img src={NoRecordI} alt="No Record" />
-        <h4>No {text} Found</h4>
+        <h4 style={{color:'#5EBFA9'}}>No {text} Found</h4>
       </div>
     )
   }

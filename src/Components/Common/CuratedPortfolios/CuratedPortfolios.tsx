@@ -53,7 +53,7 @@ const CuratedPortfolios = () => {
           </div>
         ))}
       </section>
-      <div>
+      <div style={{marginTop: 'auto', padding: '1rem 0'}}>
         <p>Don't want to invest in a curated portfolio?</p>
         <Link to="">Create your own</Link>
       </div>

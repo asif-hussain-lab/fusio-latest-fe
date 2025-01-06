@@ -142,16 +142,16 @@ const MainDashboard = () => {
               </div>
             </div>
           </section>
-          <section className="dashboardCharts">
-            <div>
-              <h1>Tvl</h1>
+          <section className="dashboardCharts" >
+            <div className="dashboardChartsDiv">
+              <h1>BTC Price</h1>
               <section>
                 <TvlGraph />
               </section>
             </div>
-            <div>
+            <div className="dashboardChartsDiv">
               <h1>How to invest in curated portfolios:</h1>
-              <div>
+              <div style={{height: '100%'}}>
                 <CuratedPortfolios />
               </div>
             </div>

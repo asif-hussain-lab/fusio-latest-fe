@@ -51,11 +51,8 @@ const Header = () => {
             <NavLink onClick={onclick} to="/dashboard" className="btn-style">
               Dashboard
             </NavLink>
-            <NavLink onClick={onclick} to="/explore" className="btn-style">
-              Explore
-            </NavLink>
             <NavDropdown
-              title="Build Portfolio"
+              title="Invest"
               id="basic-nav-dropdown"
               show={showhover}
               onMouseEnter={showDropdown}
@@ -77,12 +74,13 @@ const Header = () => {
                 className="dropdown-item"
                 to={`/addPortfolio?type=${PORTFOLIO_TYPE.byop}`}
               >
-                Portfolio Builder
-              </Link>
-              <Link onClick={onclick} data-rr-ui-dropdown-item="" className="dropdown-item" to="/mpt">
-                Portfolio Manager
+                Build your Own
               </Link>
             </NavDropdown>
+
+            <NavLink onClick={onclick} to="/mpt" className="btn-style">
+            Portfolio Manager
+            </NavLink>
           </Navbar.Collapse>
           <div className="d-flex align-items-center justify-content-between">
             <ConnectWallet />

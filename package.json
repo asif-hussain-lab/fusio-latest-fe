@@ -1,6 +1,6 @@
 {
   "name": "fusio-wealth-management",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "private": true,
   "dependencies": {
     "@canvasjs/charts": "^3.10.18",

@@ -41,7 +41,7 @@
                     position: fixed;
                     left: -25rem;
                     top: 0rem;
-                    background-color: $baseclr;
+                    background: linear-gradient(3.27deg, #006B99 2.69%, #00B2FF 97.31%);
                     width: 25rem;
                     padding: 2rem 1rem;
                     display: block;
@@ -86,7 +86,7 @@
                         padding: 0.8rem 2rem;
                         font-size: 1.6rem;
                         font-weight: 600;
-                        background-color: $baseclr;
+                        background: linear-gradient(3.27deg, #006B99 2.69%, #00B2FF 97.31%);
                         border: 0;
                         text-transform: capitalize;
                         transition: all ease-in-out 0.3s;
@@ -108,7 +108,7 @@
                         }
 
                         &::after {
-                           background-color: #B4FF00;
+                           background-color: #ffffff;
                             mask: url($IMAGE_BASE_URL+"Icons/downarrow.svg") no-repeat center;
                             -webkit-mask: url($IMAGE_BASE_URL+"Icons/downarrow.svg") no-repeat center;
                             width: 12px;
@@ -127,19 +127,19 @@
 
                         &.show {
                             border-radius: 5px;
-                            background-color: $yellowclr;
-                            color: $baseclr;
+                            background: linear-gradient(180deg, #18749D 0%, #5EBFA9 100%);
+                            color: $whiteclr;
 
                             &::after {
                                 rotate: (180deg);
-                                background-color: $baseclr;
+                                background: linear-gradient(180deg, #18749D 0%, #5EBFA9 100%);
                             }
                         }
                     }
 
                     .dropdown-menu {
                         border-radius: 5px;
-                        background: $baseclr;
+                        background: linear-gradient(3.27deg, #006B99 2.69%, #00B2FF 97.31%);
                         box-shadow: 0px 4px 12px 0px rgba(33, 33, 33, 0.44);
                         width: 100%;
                         border: 0;
@@ -165,8 +165,8 @@
                             &:hover,
                             &.active,
                             &:focus {
-                                color: $baseclr;
-                                background-color: $yellowclr;
+                                color: $whiteclr;
+                                background: linear-gradient(180deg, #18749D 0%, #5EBFA9 100%);
                             }
                         }
                     }
@@ -175,7 +175,7 @@
                 .btn-style {
                     margin: 0 0.8rem;
                     min-width: 16.8rem;
-                    background-color: $baseclr;
+                    background: linear-gradient(3.27deg, #006B99 2.69%, #00B2FF 97.31%);
                     color: white;
                     font-weight: 600;
                     font-size: 1.6rem;
@@ -186,8 +186,8 @@
 
                     &:hover,
                     &.active {
-                        background-color: $yellowclr;
-                        color: $baseclr;
+                        background: linear-gradient(180deg, #18749D 0%, #5EBFA9 100%);
+                        color: $whiteclr;
                     }
                 }
             }

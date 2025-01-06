@@ -81,7 +81,7 @@
 
         .btn-style {
             &.WltBtn {
-                background-color: $cardbgclr;
+                background: linear-gradient(3.27deg, #006B99 2.69%, #00B2FF 97.31%);
                 color: $whiteclr;
                 padding: 0 2rem;
                 font-size: 1.6rem;
@@ -91,8 +91,8 @@
                 margin-left: 0.8rem;
 
                 &:hover {
-                    color: $baseclr;
-                    background-color: $yellowclr;
+                    color: $whiteclr;
+                    background: linear-gradient(180deg, #18749D 0%, #5EBFA9 100%);
                 }
 
                 @media(max-width:767px) {

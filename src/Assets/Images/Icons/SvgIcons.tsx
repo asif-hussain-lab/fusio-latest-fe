@@ -178,11 +178,11 @@ export const CloseEye = () => (
 
 export const NotificationIcon = () => (
   <svg width="50" height="48" viewBox="0 0 50 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle opacity="0.2" cx="25.8057" cy="24" r="24" fill="#1B293F"/>
-    <circle cx="40.9053" cy="7.5" r="5.5" fill="#18749D"/>
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M26.3057 29.9042C31.9449 29.9042 34.5537 29.1325 34.8057 26.0352C34.8057 22.9401 32.9868 23.1391 32.9868 19.3415C32.9868 16.3751 30.3509 13 26.3057 13C22.2604 13 19.6245 16.3751 19.6245 19.3415C19.6245 23.1391 17.8057 22.9401 17.8057 26.0352C18.0586 29.1442 20.6674 29.9042 26.3057 29.9042Z" stroke="#1B293F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M28.6945 33.1144C27.3304 34.7301 25.2024 34.7492 23.8252 33.1144" stroke="#1B293F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
+<circle opacity="0.2" cx="25.9595" cy="24" r="24" fill="#1B293F"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M26.4595 29.9042C32.0987 29.9042 34.7075 29.1325 34.9595 26.0352C34.9595 22.9401 33.1406 23.1391 33.1406 19.3415C33.1406 16.3751 30.5047 13 26.4595 13C22.4142 13 19.7783 16.3751 19.7783 19.3415C19.7783 23.1391 17.9595 22.9401 17.9595 26.0352C18.2124 29.1442 20.8212 29.9042 26.4595 29.9042Z" stroke="#1B293F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M28.8483 33.1144C27.4842 34.7301 25.3562 34.7492 23.979 33.1144" stroke="#1B293F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
   
 )
 
