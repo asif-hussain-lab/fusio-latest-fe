@@ -17,3 +17,7 @@
 @function theme-get($key) {
     @return map-get($theme-map, $key);
 }
+
+.canvasjs-chart-credit{
+    display: none !important;
+}

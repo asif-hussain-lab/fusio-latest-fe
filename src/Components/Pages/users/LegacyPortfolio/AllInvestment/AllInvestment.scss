@@ -2,13 +2,16 @@
 
 .allinvestment {
     margin-bottom: 2.4rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
     padding: 1.4rem 1.6rem;
     background: $gradientboxclr;
-    box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.03);
+    box-shadow: #FFFFFF5C;
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+    border-radius: 10px;
 
 
     @media (max-width:1199px) {
@@ -70,7 +73,7 @@
 }
 
 .allinvestment:hover {
-    background-color: rgb(96, 95, 94);
+    background-color: #5EBFA9;
 }
 
 .allinvestment.active {

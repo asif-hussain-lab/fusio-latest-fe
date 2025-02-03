@@ -29,7 +29,7 @@ const PortfolioChart = ({ data }: any) => {
         if (result?.success) {
           let dataForLineGraph: any = []
           let dataAxis: any = {
-            type: 'spline',
+            type: 'area',
             lineColor: '#B4FF00',
             xValueFormatString: 'DD/MM/YYYY',
             markerType: 'none',
@@ -79,7 +79,7 @@ const PortfolioChart = ({ data }: any) => {
       {
         axisY2: {
           lineThickness: 1,
-          labelFontSize: 9,
+          labelFontSize: 12,
           labelFontColor: '#ccc',
           lineColor: '#B4FF00',
           gridThickness: 0,
@@ -99,7 +99,7 @@ const PortfolioChart = ({ data }: any) => {
           tickColor: '#B4FF00',
           lineThickness: 1,
           lineColor: '#B4FF00',
-          labelFontSize: 9,
+          labelFontSize: 12,
           labelFontColor: '#ccc',
           gridColor: '#001930',
           gridThickness: 0,
@@ -124,7 +124,14 @@ const PortfolioChart = ({ data }: any) => {
             return content
           },
         },
-        data: dataPointsForLineChart,
+        data: dataPointsForLineChart.map((dataSeries, index) => ({
+          ...dataSeries,
+          type: 'area', // Smoothed area chart
+          lineThickness: 3,
+          fillOpacity: 0.3,
+          markerSize: 8,
+          color: '#5EBFA9',
+        })),
       },
     ],
     navigator: {

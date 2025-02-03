@@ -6,6 +6,7 @@ import lite from './tokens/liteCoin.svg'
 import oneInch from './tokens/oneinch.png'
 import power from './tokens/power.png'
 
+
 export const MoonIcon = () => (
   <svg height="20" id="Layer_1" version="1.1" viewBox="0 0 512 512" width="20" xmlns="http://www.w3.org/2000/svg">
     <path

@@ -20,7 +20,8 @@ import { ConfirmationModal } from '../CommonModal/ConfirmationModal/Confirmation
 import CountdownTimer from '../CountdownTimer/CountdownTimer'
 import './NftCard.scss'
 import cardBg from '../../../Assets/Images/exploreCardBg.png'
-import profileImg from '../../../Assets/Images/profile.png'
+import profileImg from '../../../Assets/Images/coins.png'
+import {SuitcaseIcon} from '../../../Assets/svgImgs/svgImgs'
 
 const NftCard = ({
   item,
@@ -134,12 +135,11 @@ const NftCard = ({
       )}
       <div className="nftcard_sec">
         <div className="items-center gap-3" style={{ display: 'flex' }}>
-          <img
-            className="w-[50px] rounded-full border-[1px] border-[yellow]"
-            style={{ width: '58.93px', height: '58.93px' }}
-            src={profileImg}
-            alt="Img"
-          />
+
+        <div className="manageCard_Iconbox">
+          <SuitcaseIcon />
+        </div>
+
           <div className="flex flex-col mt-3">
             <h3 style={{ marginBottom: '0px' }}>{item?.portfolioName}</h3>
             <div className="p-status">
@@ -153,14 +153,14 @@ const NftCard = ({
         <div className="nft_content">
           {isNftCard && (
             <>
-              <div className="w-100 mb-3">
+              <div className="w-100 mb-3 mt-2">
                 <div className="nft_data">
                   <p>USD Value:</p>
                   <h6>
                     $
                     {item?.status === NFT_STATUS.BURNED && item?.status === NFT_STATUS.TRANSFERRED
                       ? '0'
-                      : item?.usdValue}
+                      : item?.usdValue?.toFixed(2)}
                   </h6>
                 </div>
               </div>

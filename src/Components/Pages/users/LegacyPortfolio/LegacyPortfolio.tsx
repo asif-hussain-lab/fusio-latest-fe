@@ -33,7 +33,7 @@ const LegacyPortfolio = ({ admin }: { admin?: boolean }) => {
   const [showDisclaimer, setShowDisclaimer] = useState<boolean>(false)
   const handleDisclaimerClose = () => setShowDisclaimer(false)
   
-  useEffect(() => {
+  useEffect(() => { 
     if (id) {
       if (prevRefreshUserData.current !== refreshUserData) {
         getPortfolioDetails(false)

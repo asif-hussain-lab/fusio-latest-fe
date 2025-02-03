@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import './PortfolioCards.scss'
+import PortfolioImage from '../PortfolioImage'
 
 interface PortfolioCardProps {
   image: string
@@ -10,7 +11,7 @@ interface PortfolioCardProps {
 const PortfolioCards: FC<PortfolioCardProps> = ({ image, name, returnValue }) => {
   return (
     <div className="portfolioCard">
-      <img src={image} alt="profile" />
+      <PortfolioImage heading={name} />
       <h5>{name}</h5>
       <p>{returnValue}</p>
     </div>

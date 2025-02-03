@@ -559,7 +559,7 @@ const AddPortfolioModal = () => {
                   </InputCustom>
                 ) : (
                   <div className="d-flex aling-items-center">
-                    <h6>Transaction Fees {aumFee}%</h6>
+                    <h6 style={{color:'black'}}>Transaction Fees {aumFee}%</h6>
                     <CustomTooltip
                       className="ms-1 rightIcon"
                       icon={<InfoIcon />}

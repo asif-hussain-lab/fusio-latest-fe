@@ -42,7 +42,7 @@ const MainDashboard = () => {
       let result: any = await dispatch(callApiGetMethod('GET_WHITELISTED_TOKENS', obj, false))
       if (result?.success) {
         setWhitelistedTokenList(result?.data?.docs)
-        
+        console.log(result?.data?.docs)
       }
       setLoading(false)
     },
@@ -77,7 +77,7 @@ const MainDashboard = () => {
   return (
     <div className="commonContentModal pt-40 pb-40">
       <Container>
-        <div className="fundForm commonBasecard mrq">
+        <div className="fundForm commonBasecard mrq" style={{background: '#FFFFFF1A' }}>
           <div
             className="flex justify-between items-center text-white bg-no-repeat p-5 rounded-xl shadow-md bg-cover mb-4"
             style={{
@@ -98,64 +98,87 @@ const MainDashboard = () => {
               </div>
             </div>
           </div>
+          <Row>
+          <Col xs={12}>
           <section className="marketTrend">
-            <div>
-              <h1>Market Trend</h1>
-              
-              <div className="coinListD">
-                  <div className="coinList_listBox" style={{height: 'auto'}}>
-                    <Row>
-                    {whitelistedTokenList?.map((item: any, index: number) => (
-                      <Col xs={6} key={item._id}>
-                        <div className="CoinList_card">
-                          <div className="coin_info">
-                            <img src={item?.icon} alt="Currency-Logo" className="currencyLogo" />
-                            <h6>{item?.name}</h6>
-                            <h6>({item?.symbol})</h6>
-                          </div>
-                          <div className="coin_info">
-                            <PercentageChange
-                              changeStatus={item?.tokenPriceInfo?.priceStatus}
-                              percentageChange={item?.tokenPriceInfo?.percentageChange}
-                              toolTipText="Changes in last 1 hour"
-                            />
-                          </div>
-                        </div>
-                      </Col>
-                    ))}
-                    </Row>
-                  </div>
-                </div>
-              
-            </div>
-            <div>
-              <h1>Top Curated portfolios</h1>
+          <Row>
+            <Col md={6}>
               <div>
-              {portfolioList?.map((portfolioListItem: any) => (
-                <PortfolioCards
-                  key={portfolioListItem?.id} // Always use a unique key
-                  image={dummmyProfile}
-                  name={portfolioListItem?.portfolioName}
-                  returnValue={portfolioListItem?.expectedReturns}
-                />
-              ))}
+                <h1>Market Trend</h1>
+                
+                <div className="coinListD">
+                    <div className="coinList_listBox" style={{height: 'auto'}}>
+                      <Row>
+                      {whitelistedTokenList?.map((item: any, index: number) => (
+                        <Col xs={12} md={6} key={item._id}>
+                          <div className="CoinList_card">
+                            <div className="coin_info">
+                              <img src={item?.icon} alt="Currency-Logo" className="currencyLogo" />
+                              <h6>{item?.name}</h6>
+                              <h6>({item?.symbol})</h6>
+                            </div>
+                            <div className="coin_info">
+                              <PercentageChange
+                                changeStatus={item?.tokenPriceInfo?.priceStatus}
+                                percentageChange={item?.tokenPriceInfo?.percentageChange}
+                                toolTipText="Changes in last 1 hour"
+                              />
+                            </div>
+                          </div>
+                        </Col>
+                      ))}
+                      </Row>
+                    </div>
+                </div>
+                
               </div>
-            </div>
+              </Col>
+              <Col md={6}>
+              <div>
+                <h1>Top Curated portfolios</h1>
+                <div>
+                <Row>
+                {portfolioList?.map((portfolioListItem: any) => (
+                  <Col xs={12} md={4} key={portfolioListItem._id}>
+                  <PortfolioCards
+                    image={dummmyProfile}
+                    name={portfolioListItem?.portfolioName}
+                    returnValue={portfolioListItem?.expectedReturns}
+                  />
+                  </Col>
+                ))}
+                </Row>
+                </div>
+              </div>
+            </Col>
+            </Row>
           </section>
+          </Col>
+          </Row>
+          <Row>
+            <Col sm={12}>
           <section className="dashboardCharts" >
+          <Row style={{gap: '2%'}}>
+          <Col sm={12} md={6}>
             <div className="dashboardChartsDiv">
               <h1>BTC Price</h1>
               <section>
                 <TvlGraph />
               </section>
             </div>
+            </Col>
+            <Col sm={12} md={6}>
             <div className="dashboardChartsDiv">
               <h1>How to invest in curated portfolios:</h1>
               <div style={{height: '100%'}}>
                 <CuratedPortfolios />
               </div>
             </div>
+            </Col>
+            </Row>
           </section>
+            </Col>
+          </Row>
         </div>
       </Container>
     </div>

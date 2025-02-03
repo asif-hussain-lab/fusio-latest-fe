@@ -38,7 +38,7 @@ const AssetDetails = ({ selectedPf, activeKeyInner }: { selectedPf?: any; active
   }, [walletAddress, selectedPf, activeKeyInner])
 
   return (
-    <div className="commonBasecard">
+    <div className="commonBasecard" style={{background: 'linear-gradient(90deg, #18749D 0%, #5EBFA9 100%)'}}>
       {allAllocations?.length > 0 ? (
         <Row>
           {allAllocations?.map((item: any) => {

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { FilterIcon } from '../../../../Assets/svgImgs/svgImgs'
 import { callApiGetMethod } from '../../../../Redux/Actions/api.action'
-import { CARDLIMIT, COUNTRY_TO_RESTRICT, PORTFOLIO_TYPE, RETURNS_FILTER_OPTIONS, TYPE_FILTER_OPTIONS } from '../../../../Utils/Utils'
+import { COUNTRY_TO_RESTRICT, PORTFOLIO_TYPE, RETURNS_FILTER_OPTIONS, TYPE_FILTER_OPTIONS } from '../../../../Utils/Utils'
 import CustomDropdown from '../../../Common/CustomDropdown/CustomDropdown'
 import Switch from '../../../Common/FormInputs/Switch'
 import ManageCard from '../../../Common/ManageCard/ManageCard'
@@ -12,6 +12,7 @@ import NoRecord from '../../../Common/NoRecord/NoRecord'
 import Pagination from '../../../Common/Paginations/Paginations'
 import './Explore.scss'
 import RestrictionModal from '../../../Common/CommonModal/RestrictionModal'
+import InputCustom from '../../../Common/Inputs/InputCustom'
 
 const Explore = () => {
   const navigate = useNavigate()
@@ -25,6 +26,7 @@ const Explore = () => {
   const [totalData, setTotalData] = useState<number>(0)
   const [isEnabled, setIsEnabled] = useState<boolean>(true)
   const [filterPortfolioType, setFilterPortfolioType] = useState<any>('')
+  const [filterPortfolioSearch, setFilterPortfolioSearch] = useState<string>('')
   const [filterReturnType, setFilterReturnType] = useState<string>('')
   const [loading, setLoading] = useState<boolean>(true)
   const [activeKey, setActiveKey] = useState<any>('')
@@ -77,7 +79,7 @@ const Explore = () => {
         getPortfolioList()
       }
     }
-  }, [isEnabled, filterPortfolioType, filterReturnType, activeKey, walletAddress, refreshUserData])
+  }, [isEnabled, filterPortfolioType,filterPortfolioSearch, filterReturnType, activeKey, walletAddress, refreshUserData])
 
   const setEnableDisable = () => {
     if (isEnabled) {
@@ -97,16 +99,22 @@ const Explore = () => {
           isEnable?: boolean
           portfolioType?: number
           expectedReturns?: string
+          search?: string
           user?: string
         } = {
           page: page,
-          limit: CARDLIMIT,
+          limit: 9,
           isEnable: isEnabled,
           user: walletAddress,
         }
 
         if (filterPortfolioType) {
           obj.portfolioType = filterPortfolioType
+        }
+
+        if (filterPortfolioSearch) {
+          obj.search = filterPortfolioSearch
+          console.log(filterPortfolioSearch)
         }
 
         if (filterReturnType) {
@@ -116,6 +124,7 @@ const Explore = () => {
         if (activeKey === 'myFunds') {
           obj.createdBy = walletAddress || 'none'
         }
+
         if (loading) setLoading(true)
         let result: any = await dispatch(callApiGetMethod('GET_PORTFOLIO_LIST', obj, false))
         if (result?.success) {
@@ -127,7 +136,7 @@ const Explore = () => {
         setLoading(false)
       } catch (error) { }
     },
-    [isEnabled, filterPortfolioType, filterReturnType, activeKey, dispatch, walletAddress, refreshUserData]
+    [isEnabled, filterPortfolioType,filterPortfolioSearch, filterReturnType, activeKey, dispatch, walletAddress, refreshUserData]
   )
 
   const onPageChanged = useCallback(
@@ -169,6 +178,19 @@ const Explore = () => {
                   <p>Show Enable/Disable</p>
                   <Switch onChange={setEnableDisable} checked={isEnabled} />
                 </div>
+                <div className="exploreSwitch ms-sm-4 mt-4 my-sm-0" style={{width:'32rem'}}>
+                <input
+                  id="search"
+                  name="search"
+                  className='custom-search-input'
+                  placeholder="Search by Portfolio Name, Ticker, or Fee"
+                  onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+                    if (e.key === "Enter") { // Only update when Enter is pressed
+                      setFilterPortfolioSearch((e.target as HTMLInputElement).value);
+                    }
+                  }}
+                />
+                </div>
                 <div className="exploreFilter ms-sm-4 my-4 my-sm-0">
                   <CustomDropdown
                     onSelect={(e: any) => setFilterPortfolioType(e.value)}
@@ -195,7 +217,7 @@ const Explore = () => {
                       {portfolioList?.length ? (
                         portfolioList?.map((portfolioListItem: any) => {
                           return (
-                            <Col key={portfolioListItem?.portfolioId} xs={12} md={6} xxl={4} className="mb-4 mb-xl-5">
+                            <Col key={portfolioListItem?.portfolioId} xs={12} md={4} xxl={4} className="mb-4 mb-xl-5">
                               <ManageCard
                                 addClass={addClass[portfolioListItem?.portfolioType]}
                                 portfolioId={portfolioListItem?.portfolioId}
@@ -213,10 +235,10 @@ const Explore = () => {
                       ) : (
                         <NoRecord text="Portfolios" loading={loading} shimmerType="card" />
                       )}
-                      {totalData > CARDLIMIT && (
+                      {totalData > 9 && (
                         <Pagination
                           totalRecords={totalData}
-                          pageLimit={CARDLIMIT}
+                          pageLimit={9}
                           pageNeighbours={2}
                           onPageChanged={onPageChanged}
                           currentPage={currentPage}
@@ -261,10 +283,10 @@ const Explore = () => {
                       ) : (
                         <NoRecord text="Portfolios" loading={loading} shimmerType="card" />
                       )}
-                      {totalData > CARDLIMIT && (
+                      {totalData > 9 && (
                         <Pagination
                           totalRecords={totalData}
-                          pageLimit={CARDLIMIT}
+                          pageLimit={9}
                           pageNeighbours={2}
                           onPageChanged={onPageChanged}
                           currentPage={currentPage}

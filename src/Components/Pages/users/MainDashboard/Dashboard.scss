@@ -1,6 +1,14 @@
 @import '../../../../Assets/theme/_var.scss';
 
 
+
+@media (min-width: 768px) {
+  .col-md-6 {
+      width: 49% !important;
+  }
+}
+
+
 .dashboardChartsDiv {
   flex: 1;
   display: flex;
@@ -56,10 +64,10 @@
 
   & > * {
     &:first-child {
-      width: 45%;
+      // width: 45%;
     }
     &:last-child {
-      width: 55%;
+      // width: 55%;
     }
   }
 }
@@ -98,10 +106,10 @@
 
   & > * {
     &:first-child {
-      width: 45%;
+      // width: 45%;
     }
     &:last-child {
-      width: 55%;
+      // width: 55%;
     }
   }
 }

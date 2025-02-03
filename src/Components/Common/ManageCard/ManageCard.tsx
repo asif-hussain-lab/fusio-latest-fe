@@ -14,6 +14,8 @@ import toaster from '../Toast'
 import './ManageCard.scss'
 import { InfoIcon } from '../../../Assets/Images/Icons/SvgIcons'
 import { ManageCardProps } from '../../../Utils/Interfaces'
+import PortfolioImage from '../PortfolioImage'
+
 
 const ManageCard = (props: ManageCardProps) => {
   const { connector } = useAccount()
@@ -97,7 +99,7 @@ const ManageCard = (props: ManageCardProps) => {
     <>
       <div className={`manageCard ${props?.addClass}`} id={props?.portfolioId}>
         <div className="manageCard_Iconbox">
-          <SuitcaseIcon />
+          <PortfolioImage heading={props?.heading} />
         </div>
         <div className="manageCard_Details" onClick={() => props?.onClick && props?.onClick(props?.portfolioId)}>
           <h5>{props?.heading}</h5>

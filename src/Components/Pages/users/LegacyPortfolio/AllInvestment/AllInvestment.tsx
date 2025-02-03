@@ -16,6 +16,8 @@ const AllInvestment = ({ AllInvestedCard, callBack, setActiveKeyInner, selectedP
     }
   }
 
+  console.log("callBack",callBack);
+
   const renderClass = useCallback(
     (data: any) => {
       const currentValue = fixedToDecimal(data?.portfolioCurruntValue) ?? '0'
@@ -45,7 +47,7 @@ const AllInvestment = ({ AllInvestedCard, callBack, setActiveKeyInner, selectedP
           onClick={() => handleCLick(data)}
         >
           <h4>
-            <Link to={`/portfolioView?id=${data?.portfolioId}`}>{data?.portfolioName}</Link>
+            <Link to={`/portfolioView?id=${data?.portfolioId}`} style={{color:'white'}}>{data?.portfolioName}</Link>
           </h4>
           <div className="allinvest_data">
             <div className="text-end ps-3">

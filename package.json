@@ -1,6 +1,6 @@
 {
   "name": "fusio-wealth-management",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@canvasjs/charts": "^3.10.18",
@@ -20,6 +20,7 @@
     "compress-create-react-app": "^1.3.0",
     "copy-to-clipboard": "^3.3.3",
     "crypto-js": "^4.2.0",
+    "file-saver": "^2.0.5",
     "formik": "^2.2.9",
     "jsbi": "^4.3.0",
     "moment": "^2.29.4",

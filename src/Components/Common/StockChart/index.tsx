@@ -33,7 +33,7 @@ const StockChart = ({ id, priceType }: { id?: number; priceType?: string }) => {
                 case 'yearly': {
                   let dataAxis: any = {
                     type: 'spline',
-                    lineColor: '#18749D',
+                    lineColor: '#5EBFA9',
                     toolTipContent: '{x}: {y}USDC',
                     xValueFormatString: 'MMM YYYY',
                     markerType: 'none',
@@ -68,7 +68,7 @@ const StockChart = ({ id, priceType }: { id?: number; priceType?: string }) => {
                 case 'monthly': {
                   let dataAxis: any = {
                     type: 'spline',
-                    lineColor: '#18749D',
+                    lineColor: '#5EBFA9',
                     toolTipContent: '{x}: {y}USDC',
                     xValueFormatString: 'DD MMM', // Format for monthly data
                     markerType: 'none',
@@ -101,7 +101,7 @@ const StockChart = ({ id, priceType }: { id?: number; priceType?: string }) => {
                 case 'weekly': {
                   let dataAxis: any = {
                     type: 'spline',
-                    lineColor: '#18749D',
+                    lineColor: '#5EBFA9',
                     toolTipContent: '{x}: {y}USDC',
                     xValueFormatString: 'DD MMM', // Format for weekly data
                     markerType: 'none',
@@ -140,7 +140,7 @@ const StockChart = ({ id, priceType }: { id?: number; priceType?: string }) => {
                 case 'hourly': {
                   let dataAxis: any = {
                     type: 'spline',
-                    lineColor: '#18749D',
+                    lineColor: '#5EBFA9',
                     toolTipContent: '{x}: {y}USDC',
                     xValueFormatString: 'HH:00', // Format for hourly data
                     markerType: 'none',
@@ -283,9 +283,9 @@ const StockChart = ({ id, priceType }: { id?: number; priceType?: string }) => {
     animationEnabled: true,
     axisY2: {
       lineThickness: 1,
-      labelFontSize: 9,
+      labelFontSize: 12,
       labelFontColor: '#0A222F',
-      lineColor: '#0A222F',
+      lineColor: '#5EBFA9',
       gridThickness: 0,
       gridColor: '#0A222F',
       tickLength: 0,
@@ -302,9 +302,10 @@ const StockChart = ({ id, priceType }: { id?: number; priceType?: string }) => {
       tickLength: 5,
       tickColor: '#0A222F',
       lineThickness: 1,
-      lineColor: '#0A222F',
-      labelFontSize: 9,
+      lineColor: '#5EBFA9',
+      labelFontSize: 12,
       labelFontColor: '#0A222F',
+      labelAngle: 45,
       gridColor: '#0A222F',
       gridThickness: 0,
       valueFormatString: getXAxisFormat(),
@@ -315,7 +316,14 @@ const StockChart = ({ id, priceType }: { id?: number; priceType?: string }) => {
         snapToDataPoint: true,
       },
     },
-    data: dataPointsForLineChart,
+    data: dataPointsForLineChart.map((dataSeries, index) => ({
+      ...dataSeries,
+      type: 'splineArea', // Smoothed area chart
+      lineThickness: 3,
+      fillOpacity: 0.3,
+      markerSize: 8,
+      color: colorSet[index] || '#5EBFA9',
+    })),
   }
 
   return <div>{options ? <CanvasJSChart options={options} /> : ''}</div>

@@ -24,7 +24,7 @@ const TvlGraph: React.FC = () => {
       try {
         const API_KEY = '1062c7b485086c2a43f63ebc4c9934d38821ce06e0dad8f6f25f91dd40c056cb'
         const response = await fetch(
-          `https://min-api.cryptocompare.com/data/v2/histoday?fsym=BTC&tsym=USD&limit=30&api_key=${API_KEY}`
+          `https://min-api.cryptocompare.com/data/v2/histoday?fsym=BTC&tsym=USD&limit=100&api_key=${API_KEY}`
         )
 
         if (!response.ok) {
@@ -32,12 +32,9 @@ const TvlGraph: React.FC = () => {
         }
 
         const result = await response.json()
-        console.log(result.Data.Data)
 
         // Process API response
         const data = result.Data.Data
-        console.log('log response====', data)
-        console.log('log response====', data)
 
         const newLabels = data.map((item: any) =>
           new Date(item.time * 1000).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
@@ -77,14 +74,16 @@ const TvlGraph: React.FC = () => {
 
   const data = {
     labels,
+    pointStyle: false,
     datasets: [
       {
         label: 'BTC Price (USD)',
         data: values,
         fill: true,
-        backgroundColor: '#18759d61',
-        borderColor: '#18749D',
-        tension: 0.4,
+        backgroundColor: '#c8e9e2',
+        borderColor: '#5EBFA9',
+        pointRadius: 0, // Hides the points
+        pointHoverRadius: 5, // Optional: Adjust hover radius
       },
     ],
   }

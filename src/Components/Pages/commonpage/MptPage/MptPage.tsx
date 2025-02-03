@@ -300,7 +300,7 @@ const MptPage = () => {
 
           <form onSubmit={formik.handleSubmit}>
             <Row>
-              <Col xs={4}>
+              <Col xs={12} md={4}>
                 <InputCustom
                   id="investmentAmount"
                   name="investmentAmount"
@@ -322,7 +322,7 @@ const MptPage = () => {
                   }
                 />
               </Col>
-              <Col xs={4} className="mb-5">
+              <Col xs={12} md={4} className="mb-5">
                 <label className="form-label" htmlFor="Asset">
                   Search Portfolio
                 </label>
@@ -342,7 +342,7 @@ const MptPage = () => {
                   }
                 />
               </Col>
-              <Col xs={12}>
+              <Col xs={12} md={4}>
                 {selectedPortfolios.length ? (
                   <div>
                     <Row>

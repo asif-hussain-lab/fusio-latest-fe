@@ -1,5 +1,8 @@
 @import '../../../../../Assets/theme/_var.scss';
 
+.clrWhite{
+  color: white !important;
+}
 .investment_card {
   padding: 2.8rem 2.8rem;
   border-radius: 1.6rem;
@@ -55,7 +58,7 @@
     }
 
     .btn-style {
-      min-width: 19rem;
+      min-width: 16rem;
     }
   }
   .discount_text {

@@ -36,7 +36,10 @@
     & > a {
       font-size: 1.6rem;
       font-weight: 500;
-      text-decoration: underline;
+      &:hover{
+        background: linear-gradient(180deg, #18749D 0%, #5EBFA9 100%);
+        color: #ffffff;
+      }
     }
   }
 }

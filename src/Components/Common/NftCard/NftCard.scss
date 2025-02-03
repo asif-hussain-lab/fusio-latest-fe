@@ -9,6 +9,16 @@
   }
 }
 
+.manageCard_Iconbox {
+  background: $gradienticonclr1;
+
+  svg {
+      path {
+          fill: $whiteclr;
+      }
+  }
+}
+
 .nftcard {
   border-radius: 16px;
   // background-color: $baseclr;

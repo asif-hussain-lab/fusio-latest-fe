@@ -1,7 +1,8 @@
 import { NavLink, useLocation } from 'react-router-dom'
 import { DollarIcon, InvestorIcon, NftIcon, OrderIcon, PortfolioIcon } from '../../../Assets/svgImgs/svgImgs'
 import './SidebarUser.scss'
-import { RebalncingIcon } from '../../../Assets/Images/Icons/SvgIcons'
+import { RebalncingIcon,DashboardIcon } from '../../../Assets/Images/Icons/SvgIcons'
+import {SuitcaseIcon} from '../../../Assets/svgImgs/svgImgs'
 
 const SidebarUser = ({ handleSidebar }: { handleSidebar?: () => void }) => {
   const location = useLocation() // Access current location
@@ -22,9 +23,9 @@ const SidebarUser = ({ handleSidebar }: { handleSidebar?: () => void }) => {
             onClick={handleSidebar}
           >
             <span className="nav_link_icon">
-              <PortfolioIcon />
+              <DashboardIcon />
             </span>{' '}
-            My Portfolio
+            My Investments
           </NavLink>
         </li>
         <li>
@@ -59,9 +60,9 @@ const SidebarUser = ({ handleSidebar }: { handleSidebar?: () => void }) => {
             onClick={handleSidebar}
           >
             <span className="nav_link_icon">
-              <NftIcon />
+              <SuitcaseIcon />
             </span>{' '}
-            Portfolios
+            Manage & Rebalance
           </NavLink>
         </li>
         <li>

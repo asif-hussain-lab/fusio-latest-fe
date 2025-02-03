@@ -12,7 +12,6 @@ import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
 import { publicProvider } from 'wagmi/providers/public'
 import Application from './Application'
 import CommonButton from './Components/Common/Button/CommonButton'
-import DisclaimerModal from './Components/Common/CommonModal/DisclaimerModal'
 import Loader from './Components/Common/Loader'
 import { useDisclaimer } from './DisclaimerContext'
 import './Global.scss'
@@ -62,7 +61,6 @@ createWeb3Modal({
 const persistor = persistStore(store)
 
 function App() {
-  const { disclaimerAccepted, acceptDisclaimer } = useDisclaimer();
 
   return (
     <WagmiConfig config={wagmiConfig}>
@@ -70,22 +68,7 @@ function App() {
         <PersistGate loading={null} persistor={persistor}>
           <Toaster />
           <Loader />
-          {!disclaimerAccepted && (
-            <DisclaimerModal
-              show={!disclaimerAccepted}
-              handleClose={acceptDisclaimer}
-              heading="Disclaimer"
-              msg="Before you proceed, please confirm the following:"
-            >
-              <p className="custom-p">
-                You do not reside in, are not located in, are not incorporated in, and do not have a registered office
-                or principal place of business in the United States.
-              </p>
-              {/* <button onClick={acceptDisclaimer}>Accept</button> */}
-              <CommonButton onClick={acceptDisclaimer} title="Confirm" className="accept-button mt-4" />
-            </DisclaimerModal>
-          )}
-          {disclaimerAccepted && <Application />}
+          <Application />
         </PersistGate>
       </Provider>
     </WagmiConfig>

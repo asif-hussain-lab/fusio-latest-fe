@@ -21,6 +21,7 @@ import NoRecordInvestment from '../../../Common/NoRecord/NoRecordInvestment'
 import { COUNTRY_TO_RESTRICT } from '../../../../Utils/Utils'
 import RestrictionModal from '../../../Common/CommonModal/RestrictionModal'
 import PercentageChange from '../../../Common/PercentageChange/PercentageChange'
+import { saveAs } from 'file-saver'
 
 const UserDashboard = () => {
   const dispatch: Dispatch<any> = useDispatch()
@@ -39,6 +40,7 @@ const UserDashboard = () => {
   const [activeKeyInner, setActiveKeyInner] = useState<any>('all')
   const prevRefreshUserData = useRef(refreshUserData)
   const [showDisclaimer, setShowDisclaimer] = useState<boolean>(false)
+  const [filterPortfolioSearch, setFilterPortfolioSearch] = useState<string>('')
 
   const handleDisclaimerClose = () => setShowDisclaimer(false)
 
@@ -50,23 +52,33 @@ const UserDashboard = () => {
 
   useEffect(() => {
     getWhitelistedTokenList()
-}, [])
+}, [filterPortfolioSearch])
 
 const getWhitelistedTokenList = useCallback(
   async (page: number = 1, loading = true) => {
-    const obj: { page: number; limit: number } = {
+    let obj: {
+      page: number
+      limit: number
+      search?: string
+    } = {
       page: page,
       limit: 107,
     }
+    if (filterPortfolioSearch) {
+      obj.search = filterPortfolioSearch
+      console.log(filterPortfolioSearch)
+    }
+    
     if (loading) setLoading(true)
     let result: any = await dispatch(callApiGetMethod('GET_WHITELISTED_TOKENS', obj, false))
     if (result?.success) {
       setWhitelistedTokenList(result?.data?.docs)
+      console.log(result?.data?.docs)
       
     }
     setLoading(false)
   },
-  [dispatch]
+  [dispatch,filterPortfolioSearch]
 )
 
   const getAllInvestments = useCallback(
@@ -164,6 +176,31 @@ const getWhitelistedTokenList = useCallback(
   }
  
   const AllInvestedCard = useMemo(() => allInvestments?.investments, [allInvestments])
+
+  const generateCSV = useCallback(() => {
+    if (!allInvestments) {
+      console.error('No investment data available to download.');
+      return;
+    }
+    console.log(allInvestments);
+    const headers = ['Investment Name', 'Amount', 'Returns', 'Updated Date'];
+    const rows = allInvestments.investments.map((investment: any) => ({
+      name: investment.portfolioName || 'N/A',
+      amount: fixedToDecimal(investment?.portfolioCurruntValue) || '0' + tokenSymbol,
+      returns: divideBigNumber(investment?.invesedAmount?.$numberDecimal, tokenDecimals) + tokenSymbol,
+      date: investment.updatedAt || 'N/A',
+    }));
+
+    const csvContent =
+      [headers.join(',')]
+        .concat(rows.map((row) => Object.values(row).join(',')))
+        .join('\n');
+
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    saveAs(blob, 'AllInvestments.csv');
+  }, [allInvestments]);
+
+
   return (
     <div className="dashboardUser pt-40">
       
@@ -206,7 +243,7 @@ const getWhitelistedTokenList = useCallback(
                 </Col>
                 <Col xs={12} lg={4} className="mt-5 mt-lg-0">
                   <div className="allInvestmentcard">
-                    <h5>All Investment</h5>
+                    <h5 onClick={() => getAllInvestments()} style={{ cursor: 'pointer' }} >All Investment</h5>
                     <div className="allInvestmentcard_scrollList">
                       {allInvestments ? (
                         <AllInvestment
@@ -277,9 +314,23 @@ const getWhitelistedTokenList = useCallback(
               <div className="commonTopbar d-md-flex align-items-center justify-content-between mobileHeight" style={{marginTop:'1.8rem'}}>
                 <Nav className="tab_sec Border_Tabs">
                   <Nav.Item>
-                    <Nav.Link >All Assets</Nav.Link>
+                    <Nav.Link >Token List</Nav.Link>
                   </Nav.Item>
                 </Nav>
+
+                <div className="exploreSwitch ms-sm-4 mt-4 my-sm-0" style={{width:'32rem'}}>
+                  <input
+                    id="search"
+                    name="search"
+                    className='custom-search-input'
+                    placeholder="Search by Token Name or Symbol"
+                    onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+                      if (e.key === "Enter") { // Only update when Enter is pressed
+                        setFilterPortfolioSearch((e.target as HTMLInputElement).value);
+                      }
+                    }}
+                  />
+                </div>
               </div>
               <div className="coinListD">
                   <div className="coinList_listBox" style={{height: 'auto'}}>

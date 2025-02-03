@@ -1,5 +1,5 @@
 import { useWeb3Modal } from '@web3modal/wagmi/react'
-import { memo, useEffect } from 'react'
+import { memo, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Dispatch } from 'redux'
 import { useAccount, useDisconnect, useNetwork, useSignMessage, useSwitchNetwork } from 'wagmi'
@@ -22,6 +22,8 @@ const ConnectWallet = ({ className }: { className?: string }) => {
   const { switchNetwork } = useSwitchNetwork() as any
   const { signMessageAsync } = useSignMessage()
   const userWalletAddress = useSelector((state: any) => state.user.walletAddress)
+
+  const [isToggled, setIsToggled] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -95,8 +97,9 @@ const ConnectWallet = ({ className }: { className?: string }) => {
       <CommonButton
         type="button"
         className="WltBtn"
-        title={userWalletAddress ? customizeAddress(userWalletAddress) : 'Connect Wallet'}
+        title={isToggled ? '*********' : (userWalletAddress ? customizeAddress(userWalletAddress) : 'Connect Wallet')}
         onClick={() => {
+          setIsToggled((prev) => !prev);
           open()
         }}
         onlyIcon={<WalletIcon />}

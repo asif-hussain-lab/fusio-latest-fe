@@ -182,6 +182,7 @@ const InvestmentAmountCard = (props: InvestmentAmountCardProps) => {
               name="investAmount"
               label="Enter Amount (USDC)"
               placeholder="Enter Amount"
+              classLabel="clrWhite"
               nativeCurrency
               onChange={(e: any) => {
                 let isValid = allowOnlyNumberWithDecimalsInput(e.target.value, 2)
