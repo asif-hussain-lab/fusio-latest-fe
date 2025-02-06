@@ -348,7 +348,7 @@ const MptPage = () => {
                     <Row>
                       {selectedPortfolios.map((item: any, index: number) => {
                         return (
-                          <Col xs={12} md={4} key={item?.value?._id}>
+                          <Col xs={12} key={item?.value?._id}>
                             {index < (width > 767 ? 3 : 1) && (
                               <Row>
                                 <Col xs={6}>
