@@ -49,6 +49,17 @@ display: inline-flex;
         font-size: 1.4rem;
     }
 
+    &.btn-sidebar {
+        width: 100%;
+        min-width: 100%;
+        justify-content: center;
+        border-radius: 25px;
+        &:hover {
+            border-radius: 25px;
+            color: white;
+        }
+    }
+
     &.white-btn {
         background-color: $whiteclr;
 
