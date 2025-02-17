@@ -245,7 +245,8 @@ export const allowOnlyString = (inputString) => {
 
 /**SHOW VALUE WITH ONLY SELECTED DECIMALS */
 // eslint-disable-next-line import/no-unused-modules
-export const fixedToDecimal = (value: any, decimals = 4) => {
+export const fixedToDecimal = (value: any, decimals = 2) => {
+  decimals = 2;
   value =
     value && parseFloat(value) !== 0
       ? decimals === 2

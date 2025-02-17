@@ -114,7 +114,7 @@ const MainDashboard = () => {
                           <div className="CoinList_card">
                             <div className="coin_info">
                               <img src={item?.icon} alt="Currency-Logo" className="currencyLogo" />
-                              <h6>{item?.name}</h6>
+                              <h6 style={{fontSize: '14px'}}>{item?.name}</h6>
                               <h6>({item?.symbol})</h6>
                             </div>
                             <div className="coin_info">
@@ -161,7 +161,7 @@ const MainDashboard = () => {
           <Row style={{gap: '2%'}}>
           <Col sm={12} md={6}>
             <div className="dashboardChartsDiv">
-              <h1>BTC Price</h1>
+              <h1 className='mb-4'>BTC Price</h1>
               <section>
                 <TvlGraph />
               </section>
@@ -169,7 +169,7 @@ const MainDashboard = () => {
             </Col>
             <Col sm={12} md={6}>
             <div className="dashboardChartsDiv">
-              <h1>How to invest in curated portfolios:</h1>
+              <h1 className='mb-4'>How to invest in curated portfolios:</h1>
               <div style={{height: '100%'}}>
                 <CuratedPortfolios />
               </div>

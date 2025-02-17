@@ -75,7 +75,7 @@ export const ConfirmationModal = ({ text, show, handleClose, callBack, itemId, b
           </h6>
         )}
         <div className="btnGroup d-flex mt-5 pt-xl-4">
-          <CommonButton title="No" className="w-50 me-3 greendark-btn" onClick={handleClose} />
+          <CommonButton title="No" className="w-50 me-3" onClick={handleClose} />
           <CommonButton
             title="Yes"
             className="w-50 ms-3"

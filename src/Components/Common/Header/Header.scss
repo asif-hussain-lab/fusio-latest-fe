@@ -75,6 +75,13 @@
                     min-height: auto;
                     margin: 0 0.8rem;
 
+                    &.custom-dropdown {
+                        .dropdown-toggle::after {
+                            display: none;
+                        }
+                    }
+
+
                     .dropdown-toggle {
                         min-height: 5rem;
                         display: inline-flex;
@@ -109,7 +116,7 @@
 
                         &::after {
                            background-color: #ffffff;
-                            mask: url($IMAGE_BASE_URL+"Icons/downarrow.svg") no-repeat center;
+                            mask: url('../../../Assets/Images/Icons/downarrow.svg') no-repeat center;
                             -webkit-mask: url($IMAGE_BASE_URL+"Icons/downarrow.svg") no-repeat center;
                             width: 12px;
                             height: 8px;

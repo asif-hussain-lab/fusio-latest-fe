@@ -178,7 +178,23 @@ const AddPortfolioModal = () => {
             />
           ),
         }
-      })
+      }).sort((a, b) => {
+        const priorityTokens = ['BTCB', 'ETH','XRP','WBNB','SOL','DOGE','ADA','LINK'];
+        const symbolA = a.value.symbol.toUpperCase();
+        const symbolB = b.value.symbol.toUpperCase();
+        
+        // If both tokens are priority tokens, sort them according to priority order
+        if (priorityTokens.includes(symbolA) && priorityTokens.includes(symbolB)) {
+          return priorityTokens.indexOf(symbolA) - priorityTokens.indexOf(symbolB);
+        }
+        
+        // If only one token is a priority token, it should come first
+        if (priorityTokens.includes(symbolA)) return -1;
+        if (priorityTokens.includes(symbolB)) return 1;
+        
+        // For all other tokens, sort alphabetically
+        return symbolA.localeCompare(symbolB);
+      });
       setOptions(options)
     } catch (error) {
       console.error('Error fetching options:', error)

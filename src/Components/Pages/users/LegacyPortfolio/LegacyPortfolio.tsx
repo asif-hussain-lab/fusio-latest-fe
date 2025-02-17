@@ -107,8 +107,8 @@ const LegacyPortfolio = ({ admin }: { admin?: boolean }) => {
               <CustomDropdown
                 onSelect={(e: any) => setFilter(e.value)}
                 options={PRICE_TYPE}
-                defaultOption={PRICE_TYPE[0]}
-                placeholder="Hourly"
+                defaultOption={PRICE_TYPE[3]}
+                placeholder="Yearly"
                 icon={<FilterIcon />}
               />
             </span>

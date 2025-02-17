@@ -51,8 +51,15 @@ const Header = () => {
             <NavLink onClick={onclick} to="/dashboard" className="btn-style">
               Dashboard
             </NavLink>
-            <NavDropdown
-              title="Invest"
+            <NavDropdown className="custom-dropdown" title={
+                <>
+                    Invest
+                    <svg width="12" height="8" viewBox="0 0 12 8" fill="currentColor" style={{ marginLeft: '0.5rem' }}>
+                        <path d="M6 8L0 0H12L6 8Z" />
+                    </svg>
+                </>
+            }
+               // title="Invest"
               id="basic-nav-dropdown"
               show={showhover}
               onMouseEnter={showDropdown}

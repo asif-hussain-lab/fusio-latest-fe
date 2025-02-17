@@ -24,7 +24,9 @@
     width: 100%;
     backdrop-filter: blur(2.55rem);
     border: 2px solid transparent;
-    background: #18749D;
+    background-image: url('../../../../../Assets/bg3.png'); /* Corrected path to the image */
+    background-size: cover; /* Ensure the background covers the entire card */
+    background-position: center;
     border-radius: 1.6rem;
     z-index: -1;
   }
@@ -55,10 +57,6 @@
 
     @media (max-width: 991px) {
       margin-top: 2.5rem;
-    }
-
-    .btn-style {
-      min-width: 16rem;
     }
   }
   .discount_text {

@@ -11,7 +11,7 @@ const CommonButton = (props: CommonButtonProps) => {
     <button
       onClick={props?.onClick}
       type={props?.type}
-      className={`btn-style ${props?.className} ${props?.fluid ? 'w-100' : ''} ${
+className={`btn-style ${props?.className} ${props?.fluid ? 'w-100' : ''} ${
         props?.transparent ? 'transparent' : ''
       } ${loadingStates[props?.buttonLoader] ? 'not-allowed' : ''}`}
       disabled={props?.disabled}

@@ -4,7 +4,10 @@
     display: flex;
     padding: 1.5rem 2.5rem;
     border-radius: 16px;
-    background: $baseclr;
+    // background: $baseclr;
+    background-image: url('../../../Assets/bg4.png'); /* Corrected path to the image */
+    background-size: cover; /* Ensure the background covers the entire card */
+    background-position: center;
     align-items: center;
     width: 100%;
 
