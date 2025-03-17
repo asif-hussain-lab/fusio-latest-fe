@@ -44,22 +44,16 @@ const StockChart = ({ id, priceType }: { id?: number; priceType?: string }) => {
                   for (let i = 1; i <= 12; i++) {
                     let curruntMonth = currentDate.getMonth() - (12 - i)
                     const last12MonthsDate = new Date(currYear, curruntMonth, 1)
+                   const matchingData = result?.data?.ordersTrends.find(
+                      ({ month, year }) => month === last12MonthsDate.getMonth() + 1 && year === last12MonthsDate.getFullYear()
+                    );
+
                     tempdata.push({
                       x: last12MonthsDate,
-                      y: result?.data?.ordersTrends.filter(
-                        ({ month, year }) => month === curruntMonth + 1 && year === last12MonthsDate.getFullYear()
-                      ).length
-                        ? Number(
-                          divideBigNumber(
-                            result?.data?.ordersTrends.filter(
-                              ({ month, year }) =>
-                                month === curruntMonth + 1 && year === last12MonthsDate.getFullYear()
-                            )[0]?.totalInvestment?.$numberDecimal,
-                            tokenDecimals
-                          )
-                        )
+                      y: matchingData
+                        ? Number(divideBigNumber(matchingData.totalInvestment.$numberDecimal, tokenDecimals))
                         : 0,
-                    })
+                    });
                   }
                   dataAxis.dataPoints = tempdata
                   dataForLineGraph.push(dataAxis)
@@ -229,6 +223,7 @@ const StockChart = ({ id, priceType }: { id?: number; priceType?: string }) => {
               dataForLineGraph.push(dataAxis)
             }
           }
+          
           setDataPointsForLineChart(dataForLineGraph)
         }
       } catch (error) {
