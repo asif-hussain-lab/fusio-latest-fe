@@ -7,6 +7,8 @@ import { PORTFOLIO_TYPE } from '../../../Utils/Utils'
 import ConnectWallet from '../ConnectWallet'
 import Notification from '../Notification/Notification'
 import './Header.scss'
+import SidebarUser from '../Sidebar/SidebarUser'
+import { DashboardIcon } from '../../../Assets/svgImgs/svgImgs'
 
 const Header = () => {
   /**CREATE useNavigate OBJECT */
@@ -88,13 +90,58 @@ const Header = () => {
             <NavLink onClick={onclick} to="/mpt" className="btn-style">
             Portfolio Manager
             </NavLink>
+            <NavLink
+            to="/user-dashboard?tab=portfolio"
+            className="block d-xl-none btn-style"
+            onClick={onclick}
+          >
+            My Investments
+          </NavLink>
+           
+            <NavLink
+            to="/user-dashboard?tab=transactionhistory"
+            className="block d-xl-none btn-style"
+            onClick={onclick}
+          >
+            Transaction History
+           
+          </NavLink>
+            <NavLink
+            to="/user-dashboard?tab=withdrawRequests"
+            className="block d-xl-none btn-style"
+            onClick={onclick}
+          >
+            Withdraw Requests
+            
+          </NavLink>
+            <NavLink
+            to="/user-dashboard?tab=myorders"
+            className="block d-xl-none btn-style"
+            onClick={onclick}
+          >
+            My Orders
+          </NavLink>
+            <NavLink
+            to="/user-dashboard?tab=rebalanceRequests"
+            className="block d-xl-none btn-style"
+            onClick={onclick}
+          >
+            Rebalance Requests
+          </NavLink>
+            <NavLink
+            to="/explore"
+            className="block d-xl-none btn-style"
+            onClick={onclick}
+          >
+          Explore
+          </NavLink>
           </Navbar.Collapse>
           <div className="d-flex align-items-center justify-content-between">
             <ConnectWallet />
             <Notification />
             <Navbar.Toggle ref={ref} onClick={toggleClass} />
           </div>
-        </Container>
+        </Container> 
       </Navbar>
     </header>
   )

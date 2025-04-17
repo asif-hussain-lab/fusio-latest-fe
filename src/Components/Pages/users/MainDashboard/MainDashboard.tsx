@@ -3,7 +3,7 @@ import { Dispatch, memo, useCallback, useEffect, useMemo, useRef, useState } fro
 import cardBg from '../../../../Assets/Images/exploreCardBg.png'
 import { Col, Container, Row, Card } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink, useSearchParams } from 'react-router-dom'
+import { NavLink, useSearchParams, useNavigate } from 'react-router-dom'
 import { DollarIcon, InvestorIcon } from '../../../../Assets/svgImgs/svgImgs'
 import { callApiGetMethod } from '../../../../Redux/Actions/api.action'
 import { divideBigNumber, fixedToDecimal, getTrends } from '../../../../Services/common.service'
@@ -22,6 +22,7 @@ import TvlGraph from '../../../Common/TvlGraph/TvlGraph'
 import CuratedPortfolios from '../../../Common/CuratedPortfolios/CuratedPortfolios'
 
 const MainDashboard = () => {
+  const navigate = useNavigate()
   const [whitelistedTokenList, setWhitelistedTokenList] = useState<any>([])
   const dispatch: Dispatch<any> = useDispatch()
   const [loading, setLoading] = useState<boolean>(true)
@@ -144,6 +145,7 @@ const MainDashboard = () => {
                     image={dummmyProfile}
                     name={portfolioListItem?.portfolioName}
                     returnValue={portfolioListItem?.expectedReturns}
+                    onClick={() => navigate(`/portfolioView?id=${portfolioListItem?.portfolioId}`)}
                   />
                   </Col>
                 ))}
