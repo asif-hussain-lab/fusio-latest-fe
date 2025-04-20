@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, useSearchParams, useNavigate } from 'react-router-dom'
 import { DollarIcon, InvestorIcon } from '../../../../Assets/svgImgs/svgImgs'
 import { callApiGetMethod } from '../../../../Redux/Actions/api.action'
-import { divideBigNumber, fixedToDecimal, getTrends } from '../../../../Services/common.service'
 import './Dashboard.scss'
 import NoRecordInvestment from '../../../Common/NoRecord/NoRecordInvestment'
 import { COUNTRY_TO_RESTRICT } from '../../../../Utils/Utils'
@@ -14,7 +13,6 @@ import RestrictionModal from '../../../Common/CommonModal/RestrictionModal'
 import BNB from '../../../../Assets/Images/bnb.png'
 import PercentageChange from '../../../Common/PercentageChange/PercentageChange'
 import '../LegacyPortfolio/CoinList/CoinList.scss'
-import CurrencyCard from '../../../Common/CurrencyCard/CurrencyCard'
 import PortfolioCards from '../../../Common/PortfolioCards/PortfolioCards'
 
 import dummmyProfile from '../../../../Assets/dummyProfile.png'
@@ -160,7 +158,7 @@ const MainDashboard = () => {
             <Col sm={12}>
               <section className="dashboardCharts">
                 <Row style={{ gap: '2%' }}>
-                  <Col sm={12} md={6}>
+                  <Col sm={12} md={6} className="theme-sensitive-col">
                     <div className="dashboardChartsDiv">
                       <h1 className="mb-4 theme-sensitive-heading">BTC Price</h1>
                       <section>
@@ -168,7 +166,7 @@ const MainDashboard = () => {
                       </section>
                     </div>
                   </Col>
-                  <Col sm={12} md={6}>
+                  <Col sm={12} md={6} className="theme-sensitive-col">
                     <div className="dashboardChartsDiv">
                       <h1 className="mb-4 theme-sensitive-heading">How to invest in curated portfolios:</h1>
                       <div style={{ height: '100%' }}>

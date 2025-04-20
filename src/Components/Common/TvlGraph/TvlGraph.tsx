@@ -12,7 +12,7 @@ import {
   ChartOptions,
 } from 'chart.js'
 import { Line } from 'react-chartjs-2'
-import { useTheme } from '../../../../Utils/ThemeContext'
+import { useTheme } from '../../../Utils/ThemeContext'
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Filler, Tooltip, Legend)
 
@@ -61,8 +61,8 @@ const TvlGraph: React.FC = () => {
         label: 'BTC Price (USD)',
         data: values,
         fill: true,
-        backgroundColor: theme === 'dark' ? 'rgba(36, 36, 38, 0.4)' : '#c8e9e2',
-        borderColor: theme === 'dark' ? '#ffffff' : '#5EBFA9',
+        backgroundColor: '#c8e9e2',
+        borderColor: '#5EBFA9',
         pointRadius: 0, // Hides the points
         pointHoverRadius: 5, // Optional: Adjust hover radius
       },
@@ -76,7 +76,7 @@ const TvlGraph: React.FC = () => {
         display: true,
         position: 'top',
         labels: {
-          color: theme === 'dark' ? '#ffffff' : '#000000',
+          color: theme === 'dark' ? '#ffffff' : '#3C3B40',
         },
       },
       tooltip: {
@@ -91,7 +91,7 @@ const TvlGraph: React.FC = () => {
         title: {
           display: true,
           text: 'Date',
-          color: theme === 'dark' ? '#ffffff' : '#000000',
+          color: theme === 'dark' ? '#ffffff' : '#3C3B40',
         },
         grid: {
           color: theme === 'dark' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.1)',
@@ -104,7 +104,7 @@ const TvlGraph: React.FC = () => {
         title: {
           display: true,
           text: 'Price (USD)',
-          color: theme === 'dark' ? '#ffffff' : '#000000',
+          color: theme === 'dark' ? '#ffffff' : '#3C3B40',
         },
         ticks: {
           callback: (value) => `$${value}`,
