@@ -8,6 +8,14 @@
   }
 }
 
+#light .theme-sensitive-heading {
+  color: black;
+}
+
+#dark .theme-sensitive-heading {
+  color: white;
+}
+
 
 .dashboardChartsDiv {
   flex: 1;

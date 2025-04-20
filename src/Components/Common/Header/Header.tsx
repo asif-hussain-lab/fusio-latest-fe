@@ -9,6 +9,8 @@ import Notification from '../Notification/Notification'
 import './Header.scss'
 import SidebarUser from '../Sidebar/SidebarUser'
 import { DashboardIcon } from '../../../Assets/svgImgs/svgImgs'
+import { useTheme } from '../../../Utils/ThemeContext'
+import { FaSun, FaMoon } from 'react-icons/fa'
 
 const Header = () => {
   /**CREATE useNavigate OBJECT */
@@ -35,6 +37,8 @@ const Header = () => {
       ref.current.click()
     }
   }
+
+  const { theme, toggleTheme } = useTheme()
 
   return (
     <header className={isActive ? 'header userHeader openmenu' : 'header userHeader'}>
@@ -139,9 +143,24 @@ const Header = () => {
           <div className="d-flex align-items-center justify-content-between">
             <ConnectWallet />
             <Notification />
+            <button
+              aria-label="Toggle Dark Mode"
+              onClick={toggleTheme}
+              className="theme-toggle-btn"
+              style={{
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                color: theme === 'dark' ? '#FFD700' : '#333',
+                fontSize: '1.5rem',
+                marginLeft: '1rem',
+              }}
+            >
+              {theme === 'dark' ? <FaSun /> : <FaMoon />}
+            </button>
             <Navbar.Toggle ref={ref} onClick={toggleClass} />
           </div>
-        </Container> 
+        </Container>
       </Navbar>
     </header>
   )

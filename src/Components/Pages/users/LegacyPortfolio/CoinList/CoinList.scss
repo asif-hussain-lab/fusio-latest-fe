@@ -1,5 +1,20 @@
 @import '../../../../../Assets/theme/_var.scss';
 
+#dark .CoinList_card {
+  background: #242426;
+  box-shadow: 8.88px 8.88px 31.71px 0px #00000040;
+}
+
+/* Dark mode style for <h6> with symbol */
+#dark .coin_info h6:nth-child(2) {
+  color: white;
+}
+
+/* Dark mode style for <h6> with name */
+#dark .coin_info h6:nth-child(3) {
+  color: #7D7D7D;
+}
+
 .coinList {
   border-radius: 12px;
   border: 2px solid;

@@ -1,6 +1,7 @@
 import { NavLink, useLocation } from 'react-router-dom'
 import { DollarIcon, InvestorIcon, NftIcon, OrderIcon, PortfolioIcon } from '../../../Assets/svgImgs/svgImgs'
 import './SidebarUser.scss'
+import './SidebarUserTheme.scss'
 import { RebalncingIcon,DashboardIcon } from '../../../Assets/Images/Icons/SvgIcons'
 import {SuitcaseIcon} from '../../../Assets/svgImgs/svgImgs'
 
@@ -28,6 +29,7 @@ const SidebarUser = ({ handleSidebar }: { handleSidebar?: () => void }) => {
             My Investments
           </NavLink>
         </li>
+        
         <li>
           <NavLink
             to="/user-dashboard?tab=transactionhistory"

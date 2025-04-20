@@ -1,5 +1,11 @@
 @import './Assets/theme/_mixins.scss';
 @import './Assets/theme/var';
+@import './Assets/theme/_dark.scss';
+
+#dark .bg-color {
+background: #242426;
+}
+
 
 custom-p {
   font-family: Open Sans;
