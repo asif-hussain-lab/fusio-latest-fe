@@ -22,6 +22,10 @@
   display: flex;
   flex-direction: column;
 }
+
+#dark .dashboardChartsDiv {
+  background-color: #242426;
+}
 .commonContentModal {
   h4 {
     color: $blackclr;
