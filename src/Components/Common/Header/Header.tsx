@@ -85,9 +85,17 @@ const Header = () => {
               >
                 Build your Own
               </Link>
+              <Link
+                onClick={onclick}
+                data-rr-ui-dropdown-item=""
+                className="dropdown-item"
+                to={`/explore`}
+              >
+                Explore
+              </Link>
             </NavDropdown>
 
-            <NavLink onClick={onclick} to="/mpt" className="btn-style">
+            <NavLink onClick={onclick} to="/mpt" className="btn-style mt-2">
             Portfolio Manager
             </NavLink>
             <NavLink

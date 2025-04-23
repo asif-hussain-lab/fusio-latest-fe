@@ -467,11 +467,7 @@ const MptPage = () => {
         callBack={investInMPT}
         buttonLoader="investInMPT"
       />
-      <RestrictionModal show={showDisclaimer} handleClose={handleDisclaimerClose} heading="Regulation">
-        <p className="custom-p">
-          Due to regulatory and compliance, any resident residing within the USA are restricted from access.
-        </p>
-      </RestrictionModal>
+
     </div>
   )
 }
