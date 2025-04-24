@@ -6,12 +6,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { callApiGetMethod } from '../../../Redux/Actions/api.action'
 import { fixedToDecimal } from '../../../Services/common.service'
 import Shimmer from '../Shimmer/Shimmer'
+import { useTheme } from '../../../Utils/ThemeContext'
 const CanvasJSStockChart = CanvasJSReact.CanvasJSStockChart
 
 const PortfolioChart = ({ data }: any) => {
   const dispatch: Dispatch<any> = useDispatch()
   const walletAddress = useSelector((state: any) => state.user.walletAddress)
   const [dataPointsForLineChart, setDataPointsForLineChart] = useState<any>([])
+  const { theme } = useTheme()
 
   useEffect(() => {
     setDataPointsForLineChart([])
@@ -30,7 +32,7 @@ const PortfolioChart = ({ data }: any) => {
           let dataForLineGraph: any = []
           let dataAxis: any = {
             type: 'area',
-            lineColor: '#B4FF00',
+            lineColor: '#18739B',
             xValueFormatString: 'DD/MM/YYYY',
             markerType: 'none',
             lineThickness: 2,
@@ -65,11 +67,11 @@ const PortfolioChart = ({ data }: any) => {
 
   const options = {
     theme: 'dark2',
-    backgroundColor: '#18749D',
+    backgroundColor: theme === 'dark' ? '#2D2C30' : '#fff',
     animationEnabled: true,
     title: {
       text: data === 'all' ? 'Total Investment' : data?.portfolioName,
-      fontColor: '#fff',
+      fontColor: theme === 'dark' ? '#fff' : '#2D2C30',
       fontFamily: `"Open Sans", sans-serif`,
       fontSize: '18',
       fontWeight: 600,
@@ -81,7 +83,7 @@ const PortfolioChart = ({ data }: any) => {
           lineThickness: 1,
           labelFontSize: 12,
           labelFontColor: '#ccc',
-          lineColor: '#B4FF00',
+          lineColor: '#18739B',
           gridThickness: 0,
           gridColor: '#001930',
           tickLength: 0,
@@ -96,9 +98,9 @@ const PortfolioChart = ({ data }: any) => {
         },
         axisX: {
           tickLength: 5,
-          tickColor: '#B4FF00',
+          tickColor: '#18739B',
           lineThickness: 1,
-          lineColor: '#B4FF00',
+          lineColor: '#18739B',
           labelFontSize: 12,
           labelFontColor: '#ccc',
           gridColor: '#001930',
@@ -156,11 +158,11 @@ const PortfolioChart = ({ data }: any) => {
       },
       buttonStyle: {
         spacing: 5,
-        borderColor: '#B4FF00',
-        backgroundColor: '#fff',
-        backgroundColorOnHover: '#B4FF00',
-        backgroundColorOnSelect: '#B4FF00',
-        labelFontColor: '#18749D',
+        borderColor: '#18749D',
+        backgroundColor: '#18749D',
+        backgroundColorOnHover: '#ffff',
+        backgroundColorOnSelect: '#ffff',
+        labelFontColor: '#fff',
         labelFontColorOnHover: '#18749D',
         labelFontColorOnSelect: '#18749D',
         labelFontFamily: `"Open Sans", sans-serif`,

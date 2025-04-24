@@ -179,12 +179,32 @@ export const CloseEye = () => (
 
 export const NotificationIcon = () => (
   <svg width="50" height="48" viewBox="0 0 50 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle opacity="0.2" cx="25.9595" cy="24" r="24" fill="#1B293F"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M26.4595 29.9042C32.0987 29.9042 34.7075 29.1325 34.9595 26.0352C34.9595 22.9401 33.1406 23.1391 33.1406 19.3415C33.1406 16.3751 30.5047 13 26.4595 13C22.4142 13 19.7783 16.3751 19.7783 19.3415C19.7783 23.1391 17.9595 22.9401 17.9595 26.0352C18.2124 29.1442 20.8212 29.9042 26.4595 29.9042Z" stroke="#1B293F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M28.8483 33.1144C27.4842 34.7301 25.3562 34.7492 23.979 33.1144" stroke="#1B293F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+    <circle opacity="0.2" cx="25.9595" cy="24" r="24" fill="#1B293F"/>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M26.4595 29.9042C32.0987 29.9042 34.7075 29.1325 34.9595 26.0352C34.9595 22.9401 33.1406 23.1391 33.1406 19.3415C33.1406 16.3751 30.5047 13 26.4595 13C22.4142 13 19.7783 16.3751 19.7783 19.3415C19.7783 23.1391 17.9595 22.9401 17.9595 26.0352C18.2124 29.1442 20.8212 29.9042 26.4595 29.9042Z" stroke="#1B293F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M28.8483 33.1144C27.4842 34.7301 25.3562 34.7492 23.979 33.1144" stroke="#1B293F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+)
 
-  
+export const NotificationIconDark = () => (
+  <svg width="50" height="48" viewBox="0 0 50 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle opacity="0.2" cx="25.9595" cy="24" r="24" fill="#FFFFFF" />
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M26.4595 29.9042C32.0987 29.9042 34.7075 29.1325 34.9595 26.0352C34.9595 22.9401 33.1406 23.1391 33.1406 19.3415C33.1406 16.3751 30.5047 13 26.4595 13C22.4142 13 19.7783 16.3751 19.7783 19.3415C19.7783 23.1391 17.9595 22.9401 17.9595 26.0352C18.2124 29.1442 20.8212 29.9042 26.4595 29.9042Z"
+      stroke="#1B293F"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M28.8483 33.1144C27.4842 34.7301 25.3562 34.7492 23.979 33.1144"
+      stroke="#1B293F"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
 )
 
 

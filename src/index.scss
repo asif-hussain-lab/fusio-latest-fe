@@ -414,7 +414,9 @@ body {
 }
 
 .commonTopbar {
-  background: linear-gradient(90deg, #18749D 0%, #5EBFA9 100%);
+   background: 
+    url('./Assets/Images/bg/all-assets.png') no-repeat center center / cover,
+    linear-gradient(90deg, #18749D 0%, #5EBFA9 100%);
   background-size: cover;
   background-position: center center;
   padding: 0 3rem;

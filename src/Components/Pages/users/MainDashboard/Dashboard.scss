@@ -147,7 +147,9 @@
 }
 
 .allInvestmentcard {
-  background: linear-gradient(180deg, #18749D 0%, #5EBFA9 100%);
+  background: 
+    url('../../../../Assets/Images/bg/total-investment.png') no-repeat center center / cover,
+    linear-gradient(90deg, #18749D 0%, #5EBFA9 100%);
   border-radius: 1.6rem;
   box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.03);
   padding: 3rem 0;
