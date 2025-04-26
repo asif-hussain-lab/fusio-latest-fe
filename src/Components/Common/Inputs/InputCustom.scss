@@ -1,4 +1,20 @@
 @import '../../../Assets/theme/_mixins.scss';
+#dark .customInput .form-control {
+    background-color: #3C3B40;
+    color: $whiteclr;
+    &::placeholder {
+        color: $whiteclr;
+        opacity: 0.5;
+    }
+}
+
+#dark .customInput label {
+    color: $whiteclr;
+}
+
+#dark .form-label, .form-check-label{
+    color: $whiteclr;
+}
 
 .form-label,
 .form-check-label {
@@ -71,7 +87,7 @@
 
         &::placeholder {
             color: $textclr;
-            opacity: "50%";
+            opacity: 0.5;
         }
 
         &:focus {

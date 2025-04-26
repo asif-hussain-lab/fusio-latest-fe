@@ -13,6 +13,7 @@ import InputCustom from '../../Inputs/InputCustom'
 import { Col, Row } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { WithdrawModalProps } from '../../../../Utils/Interfaces'
+import { useTheme } from '../../../../Utils/ThemeContext'
 
 const WithdrawModal = ({ show, handleClose, portfolio, renderClass }: WithdrawModalProps) => {
   const navigate = useNavigate()
@@ -88,6 +89,8 @@ const WithdrawModal = ({ show, handleClose, portfolio, renderClass }: WithdrawMo
     },
   ]
 
+  const { theme, toggleTheme } = useTheme()
+
   return (
     <CommonModal
       heading="Create Withdraw Request"
@@ -123,6 +126,8 @@ const WithdrawModal = ({ show, handleClose, portfolio, renderClass }: WithdrawMo
                 {fixedToDecimal(portfolio?.portfolioCurruntValue)} {tokenSymbol}
               </span>
             </h6>
+          </div>
+          <div className="d-flex justify-content-between">
             <h6>
               Transaction Fee: <span>{portfolio?.aumFees / 100}%</span>
             </h6>
@@ -130,7 +135,7 @@ const WithdrawModal = ({ show, handleClose, portfolio, renderClass }: WithdrawMo
           <div className="mt-4">
             <h6>Enter withdraw amount:</h6>
 
-            <div className="d-flex justify-content-between ">
+            <div className="d-flex justify-content-between whiteInput">
               <InputCustom
                 placeholder="Enter Amount"
                 onChange={(e) => {
@@ -141,7 +146,9 @@ const WithdrawModal = ({ show, handleClose, portfolio, renderClass }: WithdrawMo
                 }}
                 value={withdrawAmount}
               >
-                <span className="allocP">%</span>
+                <span className="allocP" style={{ color: theme === 'dark' ? 'black' : 'white' }}>
+                  %
+                </span>
               </InputCustom>
               <Row>
                 {amountArray.map((data) => (

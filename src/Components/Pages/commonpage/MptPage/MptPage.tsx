@@ -29,6 +29,7 @@ import CustomTooltip from '../../../Common/CustomTooltip/CustomTooltip'
 import { InfoIcon } from '../../../../Assets/Images/Icons/SvgIcons'
 import { ConfirmationModal } from '../../../Common/CommonModal/ConfirmationModal/ConfirmationModal'
 import RestrictionModal from '../../../Common/CommonModal/RestrictionModal'
+import { useTheme } from '../../../../Utils/ThemeContext'
 
 const MptPage = () => {
   const { connector } = useAccount()
@@ -47,6 +48,8 @@ const MptPage = () => {
   const [width, setWidth] = useState<number>(0)
   const [show, setShow] = useState<boolean>(false)
   const [showDisclaimer, setShowDisclaimer] = useState<boolean>(false)
+
+  const { theme, toggleTheme } = useTheme()
 
   const handleClose = useCallback(() => {
     setShow(false)
@@ -411,13 +414,13 @@ const MptPage = () => {
               </Col>
               <Col xs={12}>
                 <div className="d-flex flex-column">
-                  <h6 style={{ color: 'black' }}>
+                  <h6 style={{ color: theme === 'dark' ? 'white' : 'black' }}>
                     Available Balance:{' '}
                     <span>
                       {divideBigNumber(balance, tokenDecimals)} {tokenSymbol}
                     </span>
                   </h6>
-                  <h6 className="d-flex" style={{ color: 'black' }}>
+                  <h6 className="d-flex" style={{ color: theme === 'dark' ? 'white' : 'black' }}>
                     Transaction Fees {aumFees}%
                     <CustomTooltip
                       className="ms-1"

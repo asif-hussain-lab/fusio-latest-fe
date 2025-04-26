@@ -1,5 +1,14 @@
 @import '../../../../../Assets/theme/_var.scss';
 
+#dark .whiteInput .customInput .form-control {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    &::placeholder {
+        color: #000000;
+        opacity: 0.5;
+    }
+}
+
 .clrWhite{
   color: white !important;
 }

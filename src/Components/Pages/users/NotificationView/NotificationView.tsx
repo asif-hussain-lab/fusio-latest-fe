@@ -9,8 +9,10 @@ import NoRecord from '../../../Common/NoRecord/NoRecord'
 import { CARDLIMIT } from '../../../../Utils/Utils'
 import Pagination from '../../../Common/Paginations/Paginations'
 import TimeAgo from 'react-timeago'
+import { useTheme } from '../../../../Utils/ThemeContext'
 
 const NotificationView = () => {
+  const { theme, toggleTheme } = useTheme()
   const dispatch: Dispatch<any> = useDispatch()
   const walletAddress = useSelector((state: any) => state.user.walletAddress)
   const refreshUserData = useSelector((state: any) => state.user.refreshUserData)
@@ -68,7 +70,7 @@ const NotificationView = () => {
     <>
       <div className="notificationView">
         <Container>
-          <h2>All Notification</h2>
+          <h2 style={{ color: theme === 'dark' ? 'white' : '' }}>All Notification</h2>
 
           <ul className="notificationView_notiList">
             {notificationList?.length > 0 ? (
@@ -79,7 +81,7 @@ const NotificationView = () => {
                       <span className="token_icon">
                         <InvestorIcon />
                       </span>
-                      <p>
+                      <p style={{ color: theme === 'dark' ? 'white' : 'black' }}>
                         <span
                           dangerouslySetInnerHTML={{
                             __html: item?.message,
@@ -96,7 +98,7 @@ const NotificationView = () => {
                         )}
                       </p>
                     </div>
-                    <p>
+                    <p style={{ color: theme === 'dark' ? 'white' : 'black' }}>
                       <TimeAgo date={item?.createdAt} />
                     </p>
                   </li>

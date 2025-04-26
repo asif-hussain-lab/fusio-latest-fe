@@ -124,6 +124,7 @@ const Header = () => {
           <div className="d-flex align-items-center justify-content-between">
             <ConnectWallet />
             <Notification />
+
             <button
               aria-label="Toggle Dark Mode"
               onClick={toggleTheme}
@@ -133,7 +134,7 @@ const Header = () => {
                 border: 'none',
                 cursor: 'pointer',
                 color: theme === 'dark' ? '#FFD700' : '#333',
-                fontSize: '1.5rem',
+                fontSize: '2.5rem',
                 marginLeft: '1rem',
               }}
             >

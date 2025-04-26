@@ -10,7 +10,7 @@ import CopyAddress from '../../CopyAddress/CopyAddress'
 import Pagination from '../../Paginations/Paginations'
 import CommonTable from '../CommonTable'
 import { saveAs } from 'file-saver'
-import { date } from 'yup'
+import './TransactionHistoryTable.scss'
 
 const TransactionHistoryTable = (props: {
   selectedUser?: string
@@ -154,94 +154,103 @@ const TransactionHistoryTable = (props: {
 
   return (
     <div className="transactionHistoryTable">
-      
       <div className="d-sm-flex align-items-start justify-content-between mb-4 mb-md-4">
-        <h5 style={{color:'black', paddingTop:'14px'}}>Transaction History</h5>
+        {/* <h5 style={{color:'black', paddingTop:'14px'}}>Transaction History</h5> */}
         <button className="btn-style" onClick={generateCSV}>
-          <span className="iconSpace"><svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.6993 13.6208V15.8109H2.36857V13.6208H0.178467V16.906C0.178467 17.1964 0.293838 17.4749 0.4992 17.6803C0.704562 17.8857 0.983093 18.001 1.27352 18.001H18.7943C19.0848 18.001 19.3633 17.8857 19.5687 17.6803C19.774 17.4749 19.8894 17.1964 19.8894 16.906V13.6208H17.6993ZM14.4141 4.91903L10.0339 0.538818L5.65373 4.91903L7.2087 6.474L8.93888 4.73287V13.6794H11.129V4.73287L12.8701 6.474L14.4141 4.91903Z" fill="#FFFFFF"></path></svg>
-          </span>Data Export</button>
-        </div>
-      <CommonTable fields={props?.selectedUser ? fields2 : fields1} loading={loading}>
-        {transactionsList?.map((item: any, index: number) => (
-          <tr key={item?.createdAt}>
-            {isAdmin && props?.selectedUser ? (
-              <td>{index + 1 + (currentPage - 1) * CARDLIMIT}</td>
-            ) : (
-              <td>{index + 1 + (currentPage - 1) * TABLELIMIT}</td>
-            )}
-            <td>
-              {props?.all || props?.selectedUser ? (
-                <Link to={`/admin/portfolioView?id=${item?.portfolioId}`} className="currencyAddress">
-                  {item.portfolioName}
-                </Link>
+          <span className="iconSpace">
+            <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M17.6993 13.6208V15.8109H2.36857V13.6208H0.178467V16.906C0.178467 17.1964 0.293838 17.4749 0.4992 17.6803C0.704562 17.8857 0.983093 18.001 1.27352 18.001H18.7943C19.0848 18.001 19.3633 17.8857 19.5687 17.6803C19.774 17.4749 19.8894 17.1964 19.8894 16.906V13.6208H17.6993ZM14.4141 4.91903L10.0339 0.538818L5.65373 4.91903L7.2087 6.474L8.93888 4.73287V13.6794H11.129V4.73287L12.8701 6.474L14.4141 4.91903Z"
+                fill="#FFFFFF"
+              ></path>
+            </svg>
+          </span>
+          Data Export
+        </button>
+      </div>
+      <div className='tableFormat'>
+        <CommonTable fields={props?.selectedUser ? fields2 : fields1} loading={loading}>
+          {transactionsList?.map((item: any, index: number) => (
+            <tr key={item?.createdAt}>
+              {isAdmin && props?.selectedUser ? (
+                <td>{index + 1 + (currentPage - 1) * CARDLIMIT}</td>
               ) : (
-                <Link to={`/portfolioView?id=${item?.portfolioId}`} className="currencyAddress">
-                  {item.portfolioName}
-                </Link>
+                <td>{index + 1 + (currentPage - 1) * TABLELIMIT}</td>
               )}
-            </td>
-            <td>
-              {item?.transactionHash ? (
-                <a href={item?.transactionHash} target="_blank" rel="noreferrer" className="currencyAddress">
-                  {customizeAddress(item.transactionHash.split('/')[4])}
-                  <span className="svgicon ms-2">
-                    <LinkIcon />
-                  </span>
-                </a>
-              ) : (
-                '-'
-              )}
-            </td>
-            {!props?.selectedUser && (
               <td>
-                <CopyAddress text={item?.user} />
+                {props?.all || props?.selectedUser ? (
+                  <Link to={`/admin/portfolioView?id=${item?.portfolioId}`} className="currencyAddress">
+                    {item.portfolioName}
+                  </Link>
+                ) : (
+                  <Link to={`/portfolioView?id=${item?.portfolioId}`} className="currencyAddress">
+                    {item.portfolioName}
+                  </Link>
+                )}
               </td>
-            )}
-            <td>
-              {item?.event === TRANSACTION_STATUS.CLAIMED
-                ? `${divideBigNumber(item?.amount?.$numberDecimal, tokenDecimals)} ${tokenSymbol}`
-                : `${divideBigNumber(item?.buyAmount?.$numberDecimal, tokenDecimals)} ${tokenSymbol}`}
-            </td>
-            <td>
-              {divideBigNumber(
-                item?.adminAumFees?.$numberDecimal ? item.adminAumFees?.$numberDecimal : '0',
-                tokenDecimals,
-                false
-              )}{' '}
-              {tokenSymbol}
-            </td>
-            <td>
-              {item?.time
-                ? moment(item?.time * 1000).format('DD-MM-YYYY hh:mm A')
-                : moment(item?.createdAt).format('DD-MM-YYYY hh:mm A')}
-            </td>
-            <td className={renderTransactionStatusClassName(item?.event)}>{item?.event}</td>
-          </tr>
-        ))}
-      </CommonTable>
+              <td>
+                {item?.transactionHash ? (
+                  <a href={item?.transactionHash} target="_blank" rel="noreferrer" className="currencyAddress">
+                    {customizeAddress(item.transactionHash.split('/')[4])}
+                    <span className="svgicon ms-2">
+                      <LinkIcon />
+                    </span>
+                  </a>
+                ) : (
+                  '-'
+                )}
+              </td>
+              {!props?.selectedUser && (
+                <td>
+                  <CopyAddress text={item?.user} />
+                </td>
+              )}
+              <td>
+                {item?.event === TRANSACTION_STATUS.CLAIMED
+                  ? `${divideBigNumber(item?.amount?.$numberDecimal, tokenDecimals)} ${tokenSymbol}`
+                  : `${divideBigNumber(item?.buyAmount?.$numberDecimal, tokenDecimals)} ${tokenSymbol}`}
+              </td>
+              <td>
+                {divideBigNumber(
+                  item?.adminAumFees?.$numberDecimal ? item.adminAumFees?.$numberDecimal : '0',
+                  tokenDecimals,
+                  false
+                )}{' '}
+                {tokenSymbol}
+              </td>
+              <td>
+                {item?.time
+                  ? moment(item?.time * 1000).format('DD-MM-YYYY hh:mm A')
+                  : moment(item?.createdAt).format('DD-MM-YYYY hh:mm A')}
+              </td>
+              <td className={renderTransactionStatusClassName(item?.event)}>{item?.event}</td>
+            </tr>
+          ))}
+        </CommonTable>
 
-      {isAdmin && props?.selectedUser && totalData > CARDLIMIT && (
-        <Pagination
-          totalRecords={totalData}
-          pageLimit={CARDLIMIT}
-          pageNeighbours={2}
-          onPageChanged={onPageChanged}
-          currentPage={currentPage}
-          totalPage={totalPage}
-          className="justify-content-end"
-        />
-      )}
-      {(!isAdmin || !props?.selectedUser) && totalData > TABLELIMIT && (
-        <Pagination
-          totalRecords={totalData}
-          pageLimit={TABLELIMIT}
-          pageNeighbours={2}
-          onPageChanged={onPageChanged}
-          currentPage={currentPage}
-          totalPage={totalPage}
-          className="justify-content-end"
-        />
-      )}
+        {isAdmin && props?.selectedUser && totalData > CARDLIMIT && (
+          <Pagination
+            totalRecords={totalData}
+            pageLimit={CARDLIMIT}
+            pageNeighbours={2}
+            onPageChanged={onPageChanged}
+            currentPage={currentPage}
+            totalPage={totalPage}
+            className="justify-content-end"
+          />
+        )}
+        {(!isAdmin || !props?.selectedUser) && totalData > TABLELIMIT && (
+          <Pagination
+            totalRecords={totalData}
+            pageLimit={TABLELIMIT}
+            pageNeighbours={2}
+            onPageChanged={onPageChanged}
+            currentPage={currentPage}
+            totalPage={totalPage}
+            className="justify-content-end"
+          />
+        )}
+      </div>
     </div>
   )
 }

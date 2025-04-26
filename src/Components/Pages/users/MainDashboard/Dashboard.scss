@@ -38,6 +38,12 @@
 #dark .dashboardChartsDiv {
   background-color: #242426;
 }
+
+#dark .commonContentModal {
+  h4 {
+    color: $whiteclr;
+  }
+}
 .commonContentModal {
   h4 {
     color: $blackclr;

@@ -1,5 +1,36 @@
 @import '../../../Assets/theme/_var.scss';
 
+#dark .common_select.input_select .select__control {
+    background-color: #3C3B40;
+    border: 1px solid rgba(255, 255, 255, 0.17);
+}
+#dark .common_select.input_select .select__control .select__indicator svg {
+    fill: white;
+}
+
+#dark .common_select .select__menu {
+    background-color: #3C3B40;
+
+    .select__menu-list {
+      .select__option {
+        color: $whiteclr;
+        &:hover {
+          background-color: #3C3B40;
+          color: $yellowclr;
+        }
+        &.select__option--is-focused {
+          background-color: #3C3B40;
+          color: $yellowclr;
+        }
+        &.select__option--is-selected {
+          background-color: $yellowclr;
+          color: #3C3B40;
+        }
+      }
+    }
+  }
+
+
 .common_select {
   .selector_item {
     display: flex;
@@ -36,6 +67,7 @@
 
     .select__placeholder {
       color: $whiteclr;
+      opacity: 0.5;
     }
 
     .select__value-container {

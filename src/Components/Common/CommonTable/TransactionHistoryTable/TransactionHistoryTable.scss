@@ -1,1 +1,17 @@
 @import "../../../../Assets/theme/_var.scss";
+
+#dark .tableFormat{
+    background: #2D2C30;
+}
+
+.tableFormat{
+    background: #FFFFFF1A;
+    border: 2px solid;
+    border-image-source: radial-gradient(72.75% 202.79% at 64.88% 76.31%, rgba(24, 116, 157, 0) 0%, rgba(24, 116, 157, 0.3) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    height: 770px;
+    overflow-y: auto;
+    backdrop-filter: blur(20px);
+    box-shadow: 0px 20px 100px -9px #0000004D;
+    border-radius: 15px;
+    border: 2px;
+}

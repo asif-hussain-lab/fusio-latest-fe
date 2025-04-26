@@ -177,26 +177,28 @@ const InvestmentAmountCard = (props: InvestmentAmountCardProps) => {
       <form onSubmit={formik.handleSubmit}>
         <Row>
           <Col xs={12}>
-            <InputCustom
-              id="investAmount"
-              name="investAmount"
-              label="Enter Amount (USDC)"
-              placeholder="Enter Amount"
-              classLabel="clrWhite"
-              nativeCurrency
-              onChange={(e: any) => {
-                let isValid = allowOnlyNumberWithDecimalsInput(e.target.value, 2)
-                isValid && formik.handleChange(e)
-              }}
-              onBlur={formik.handleBlur}
-              value={formik.values.investAmount}
-              isInvalid={formik.touched.investAmount && !!formik.errors.investAmount}
-              error={
-                formik.errors.investAmount && formik.touched.investAmount ? (
-                  <span className="error-message">{formik.errors.investAmount}</span>
-                ) : null
-              }
-            />
+            <div className='whiteInput'>
+              <InputCustom
+                id="investAmount"
+                name="investAmount"
+                label="Enter Amount (USDC)"
+                placeholder="Enter Amount"
+                classLabel="clrWhite"
+                nativeCurrency
+                onChange={(e: any) => {
+                  let isValid = allowOnlyNumberWithDecimalsInput(e.target.value, 2)
+                  isValid && formik.handleChange(e)
+                }}
+                onBlur={formik.handleBlur}
+                value={formik.values.investAmount}
+                isInvalid={formik.touched.investAmount && !!formik.errors.investAmount}
+                error={
+                  formik.errors.investAmount && formik.touched.investAmount ? (
+                    <span className="error-message">{formik.errors.investAmount}</span>
+                  ) : null
+                }
+              />
+            </div>
           </Col>
         </Row>
         <div className="d-flex flex-column">
@@ -211,8 +213,8 @@ const InvestmentAmountCard = (props: InvestmentAmountCardProps) => {
           </h4>
           {discount > 0 ? (
             <h5 className="discount_text d-flex">
-              You are a DAO NFT Holder, you will get {discount}% discount on AUM Fees.
-              {' '}<CustomTooltip
+              You are a DAO NFT Holder, you will get {discount}% discount on AUM Fees.{' '}
+              <CustomTooltip
                 className="ms-1"
                 icon={<InfoIcon />}
                 text={`You will get ${discount}% discount on deposit, ${discount}% discount on withdrawal!`}
@@ -269,10 +271,10 @@ const InvestmentAmountCard = (props: InvestmentAmountCardProps) => {
           )}
           {(props?.pendingWithdrawRequest?.status === WITHDRAW_REQUEST_STATUS.INPROGRESS ||
             props?.pendingWithdrawRequest?.status === WITHDRAW_REQUEST_STATUS.PENDING) && (
-              <h6 className="text-warning mt-3">
-                You have pending withdraw requests. If you want to invest, please wait for execution or cancel that.
-              </h6>
-            )}
+            <h6 className="text-warning mt-3">
+              You have pending withdraw requests. If you want to invest, please wait for execution or cancel that.
+            </h6>
+          )}
         </div>
       </form>
       {props?.pendingWithdrawRequest?.status === WITHDRAW_REQUEST_STATUS.APPROVED && (

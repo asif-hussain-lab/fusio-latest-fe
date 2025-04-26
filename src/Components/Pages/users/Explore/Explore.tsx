@@ -46,7 +46,7 @@ const Explore = () => {
   const addClass = {
     2: 'gradientbox2',
     3: 'gradientbox1',
-    4: 'gradientbox3',
+    1: 'gradientbox3',
   }
 
   const handleDisclaimerClose = () => setShowDisclaimer(false)
