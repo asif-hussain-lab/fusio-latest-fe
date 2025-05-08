@@ -185,7 +185,8 @@
     }
 
     &.gradientbox3 {
-        background: $gradientclrbox3;
+        // background: $gradientclrbox3;
+        background-image: url('../../../Assets/Images/bg/admin-p.png');
         background-size: cover; /* Ensures the image stretches to cover the container */
         background-position: center; /* Centers the image */
         background-repeat: no-repeat;

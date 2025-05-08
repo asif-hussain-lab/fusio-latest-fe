@@ -12,10 +12,12 @@ import {
   ChartOptions,
 } from 'chart.js'
 import { Line } from 'react-chartjs-2'
+import { useTheme } from '../../../Utils/ThemeContext'
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Filler, Tooltip, Legend)
 
 const TvlGraph: React.FC = () => {
+  const { theme } = useTheme()
   const [labels, setLabels] = useState<string[]>([])
   const [values, setValues] = useState<number[]>([])
 
@@ -49,27 +51,6 @@ const TvlGraph: React.FC = () => {
     }
 
     fetchData()
-    // const fetchCryptoData = async () => {
-    //   try {
-    //     const response = await fetch(
-    //       'https://min-api.cryptocompare.com/data/v2/histoday?fsym=BTC&tsym=USD&limit=30&api_key=1062c7b485086c2a43f63ebc4c9934d38821ce06e0dad8f6f25f91dd40c056cb'
-    //     )
-
-    //     if (!response.ok) {
-    //       throw new Error(`HTTP error! Status: ${response.status}`)
-    //     }
-
-    //     const result = await response.json()
-    //     console.log(result.Data.Data)
-    //     //setData(result.Data.Data) // Assuming the data is in result.Data.Data
-    //   } catch (error) {
-    //     //setError(error.message)
-    //   } finally {
-    //     // setLoading(false)
-    //   }
-    // }
-
-    // fetchCryptoData()
   }, [])
 
   const data = {
@@ -94,9 +75,15 @@ const TvlGraph: React.FC = () => {
       legend: {
         display: true,
         position: 'top',
+        labels: {
+          color: theme === 'dark' ? '#ffffff' : '#3C3B40',
+        },
       },
       tooltip: {
         enabled: true,
+        backgroundColor: theme === 'dark' ? '#333' : undefined,
+        titleColor: theme === 'dark' ? '#fff' : undefined,
+        bodyColor: theme === 'dark' ? '#fff' : undefined,
       },
     },
     scales: {
@@ -104,18 +91,27 @@ const TvlGraph: React.FC = () => {
         title: {
           display: true,
           text: 'Date',
+          color: theme === 'dark' ? '#ffffff' : '#3C3B40',
         },
         grid: {
-          display: false,
+          color: theme === 'dark' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.1)',
+        },
+        ticks: {
+          color: theme === 'dark' ? '#ffffff' : '#000000',
         },
       },
       y: {
         title: {
           display: true,
           text: 'Price (USD)',
+          color: theme === 'dark' ? '#ffffff' : '#3C3B40',
         },
         ticks: {
           callback: (value) => `$${value}`,
+          color: theme === 'dark' ? '#ffffff' : '#000000',
+        },
+        grid: {
+          color: theme === 'dark' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.1)',
         },
       },
     },

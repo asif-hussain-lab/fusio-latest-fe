@@ -2,7 +2,7 @@ import { CoinListProps } from '../../../../../Utils/Interfaces'
 import NoRecord from '../../../../Common/NoRecord/NoRecord'
 import PercentageChange from '../../../../Common/PercentageChange/PercentageChange'
 import './CoinList.scss'
-
+import { useTheme } from '../../../../../Utils/ThemeContext'
 
 const CoinList = (props: CoinListProps) => {
   function getToolTipText() {
@@ -21,11 +21,12 @@ const CoinList = (props: CoinListProps) => {
       console.error('Error in getToolTipText: ', error)
     }
   }
+  const { theme, toggleTheme } = useTheme()
 
   return (
     <div className="coinList w-100">
       <div className="coin_card">
-        <h4>Asset Allocation</h4>
+        <h4 style={{ color: theme === 'dark' ? 'white' : 'black' }}>Asset Allocation</h4>
       </div>
       <div className="coinList_listBox">
         {props?.assets ? (

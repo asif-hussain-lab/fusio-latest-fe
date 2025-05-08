@@ -15,7 +15,7 @@ import MyNftPage from '../MyNftPage/MyNftPage'
 import MyOrderPage from '../MyOrderPage/MyOrderpage'
 import RebalanceRequests from '../RebalanceRequests/RebalanceRequests'
 import WithdrawRequests from '../WithdrawRequests/WithdrawRequests'
-import AssetDetails from './AssetDetails/AssetDetails'
+import AssetDetailsMyInvestment from './AssetDetails/AssetDetailsMyInvestment'
 import './Dashboard.scss'
 import NoRecordInvestment from '../../../Common/NoRecord/NoRecordInvestment'
 import { COUNTRY_TO_RESTRICT } from '../../../../Utils/Utils'
@@ -277,9 +277,11 @@ const getWhitelistedTokenList = useCallback(
                 >
                   <div className="commonTopbar mt-4">
                     <Nav className="tab_sec Border_Tabs">
+
                       <Nav.Item>
                         <Nav.Link eventKey="all">All Assets</Nav.Link>
                       </Nav.Item>
+
                       {portfolioForGraph && (
                         <Nav.Item>
                           <Nav.Link eventKey="selected">
@@ -294,7 +296,7 @@ const getWhitelistedTokenList = useCallback(
                       {activeKeyInner === 'all' && (
                         <Row>
                           <Col xs={12}>
-                            <AssetDetails activeKeyInner={activeKeyInner} />
+                            <AssetDetailsMyInvestment activeKeyInner={activeKeyInner} />
                           </Col>
                         </Row>
                       )}
@@ -303,7 +305,7 @@ const getWhitelistedTokenList = useCallback(
                       {activeKeyInner === 'selected' && (
                         <Row>
                           <Col xs={12}>
-                            <AssetDetails selectedPf={portfolioForGraph} activeKeyInner={activeKeyInner} />
+                            <AssetDetailsMyInvestment selectedPf={portfolioForGraph} activeKeyInner={activeKeyInner} />
                           </Col>
                         </Row>
                       )}
@@ -311,51 +313,6 @@ const getWhitelistedTokenList = useCallback(
                   </Tab.Content>
                 </Tab.Container>
               )}
-              <div className="commonTopbar d-md-flex align-items-center justify-content-between mobileHeight" style={{marginTop:'1.8rem'}}>
-                <Nav className="tab_sec Border_Tabs">
-                  <Nav.Item>
-                    <Nav.Link >Token List</Nav.Link>
-                  </Nav.Item>
-                </Nav>
-
-                <div className="exploreSwitch ms-sm-4 mt-4 my-sm-0" style={{width:'32rem'}}>
-                  <input
-                    id="search"
-                    name="search"
-                    className='custom-search-input'
-                    placeholder="Search by Token Name or Symbol"
-                    onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
-                      if (e.key === "Enter") { // Only update when Enter is pressed
-                        setFilterPortfolioSearch((e.target as HTMLInputElement).value);
-                      }
-                    }}
-                  />
-                </div>
-              </div>
-              <div className="coinListD">
-                  <div className="coinList_listBox" style={{height: 'auto'}}>
-                    <Row>
-                    {whitelistedTokenList?.map((item: any, index: number) => (
-                      <Col xs={3} key={item._id}>
-                        <div className="CoinList_card">
-                          <div className="coin_info">
-                            <img src={item?.icon} alt="Currency-Logo" className="currencyLogo" />
-                            <h6>{item?.name}</h6>
-                            <h6>({item?.symbol})</h6>
-                          </div>
-                          <div className="coin_info">
-                            <PercentageChange
-                              changeStatus={item?.tokenPriceInfo?.priceStatus}
-                              percentageChange={item?.tokenPriceInfo?.percentageChange}
-                              toolTipText="Changes in last 1 hour"
-                            />
-                          </div>
-                        </div>
-                      </Col>
-                    ))}
-                    </Row>
-                  </div>
-                </div>
 
             </Tab.Pane>
             <Tab.Pane eventKey="transactionhistory">
@@ -372,11 +329,7 @@ const getWhitelistedTokenList = useCallback(
               
       </Container>
 
-      <RestrictionModal show={showDisclaimer} handleClose={handleDisclaimerClose} heading="Regulation">
-        <p className="custom-p">
-          Due to regulatory and compliance, any resident residing within the USA are restricted from access.
-        </p>
-      </RestrictionModal>
+      
     </div>
   )
 }

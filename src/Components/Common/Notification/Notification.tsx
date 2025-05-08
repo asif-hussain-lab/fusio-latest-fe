@@ -3,9 +3,10 @@ import { Dropdown } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import TimeAgo from 'react-timeago'
-import { NotificationIcon } from '../../../Assets/Images/Icons/SvgIcons'
+import { NotificationIcon, NotificationIconDark } from '../../../Assets/Images/Icons/SvgIcons'
 import { callApiGetMethod, callApiPostMethod } from '../../../Redux/Actions/api.action'
 import NoRecord from '../NoRecord/NoRecord'
+import { useTheme } from '../../../Utils/ThemeContext'
 
 const Notification = () => {
   const dispatch: Dispatch<any> = useDispatch()
@@ -88,16 +89,18 @@ const Notification = () => {
     }
   }, [show, walletAddress, refreshUserData])
 
+  const { theme, toggleTheme } = useTheme()
+
   return (
     <>
       <Dropdown align="end" className="notification">
         <Dropdown.Toggle variant="" id="dropdown-basic">
-          <div className="bellIcon" onClick={() => setShow(true)}>
-            {count > 0 && <span>{count}</span>}
-            <div>
-              <NotificationIcon />
+            <div className="bellIcon" onClick={() => setShow(true)}>
+              {count > 0 && <span>{count}</span>}
+              <div>
+                {theme === 'dark' ? <NotificationIconDark /> : <NotificationIcon />}
+              </div>
             </div>
-          </div>
         </Dropdown.Toggle>
         <Dropdown.Menu>
           <div className="dropmsg">

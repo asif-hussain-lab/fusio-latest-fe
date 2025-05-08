@@ -1,5 +1,15 @@
 @import './Assets/theme/_mixins.scss';
 @import './Assets/theme/var';
+@import './Assets/theme/_dark.scss';
+
+#dark .bg-color {
+background: #242426;
+  background-image: url('../public/bg1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 
 custom-p {
   font-family: Open Sans;

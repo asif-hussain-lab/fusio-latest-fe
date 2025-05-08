@@ -31,12 +31,14 @@ import CustomSelect from '../../../Common/Select/Select'
 import toaster from '../../../Common/Toast'
 import './EditPortfolioPage.scss'
 import RestrictionModal from '../../../Common/CommonModal/RestrictionModal'
+import { useTheme } from '../../../../Utils/ThemeContext'
 
 const orderOptions = (values: any) => {
   return values.filter((v) => v.isFixed).concat(values.filter((v: any) => !v.isFixed))
 }
 
 export const EditPortfolioPage = () => {
+  const { theme, toggleTheme } = useTheme()
   const { connector } = useAccount()
   const dispatch: Dispatch<any> = useDispatch()
   const country = useSelector((state: any) => state.user.country)
@@ -681,7 +683,9 @@ export const EditPortfolioPage = () => {
                         )
                       })}
                       <div className="d-flex aling-items-center">
-                        <h6 style={{color: "black"}}>Total Asset Allocation {totalAssetAllocation}%</h6>
+                        <h6 style={{ color: theme === 'dark' ? 'white' : 'black' }}>
+                          Total Asset Allocation {totalAssetAllocation}%
+                        </h6>
                       </div>
                     </Row>
                   </>
@@ -741,11 +745,6 @@ export const EditPortfolioPage = () => {
         }}
         buttonLoader={activeButton === 'update' ? 'updateAsset' : 'cancel'}
       />
-      <RestrictionModal show={showDisclaimer} handleClose={handleDisclaimerClose} heading="Regulation">
-        <p className="custom-p">
-          Due to regulatory and compliance, any resident residing within the USA are restricted from access.
-        </p>
-      </RestrictionModal>
     </div>
   )
 }

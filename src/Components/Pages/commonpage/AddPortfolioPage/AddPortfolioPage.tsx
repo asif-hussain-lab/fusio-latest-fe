@@ -32,6 +32,8 @@ import toaster from '../../../Common/Toast'
 import './AddPortfolioPage.scss'
 import RestrictionModal from '../../../Common/CommonModal/RestrictionModal'
 
+import { useTheme } from '../../../../Utils/ThemeContext'
+
 const AddPortfolioModal = () => {
   const { connector } = useAccount()
   const dispatch: Dispatch<any> = useDispatch()
@@ -61,6 +63,8 @@ const AddPortfolioModal = () => {
     expectedReturns: yup.string().required('Required field*'),
     select: yup.array().min(1, 'Required field*'),
   })
+
+    const { theme, toggleTheme } = useTheme()
 
   const formik = useFormik({
     initialValues: {
@@ -575,7 +579,7 @@ const AddPortfolioModal = () => {
                   </InputCustom>
                 ) : (
                   <div className="d-flex aling-items-center">
-                    <h6 style={{color:'black'}}>Transaction Fees {aumFee}%</h6>
+                    <h6 style={{ color: theme === 'dark' ? 'white' : 'black' }}>Transaction Fees {aumFee}%</h6>
                     <CustomTooltip
                       className="ms-1 rightIcon"
                       icon={<InfoIcon />}
@@ -585,7 +589,9 @@ const AddPortfolioModal = () => {
                 )}
               </Col>
               <div className="d-flex  aling-items-center">
-                <h6 style={{ color: 'black' }}>Total Asset Allocation {totalAssetAllocation}%</h6>
+                <h6 style={{ color: theme === 'dark' ? 'white' : 'black' }}>
+                  Total Asset Allocation {totalAssetAllocation}%
+                </h6>
               </div>
             </Row>
             <div className="text-center mt-4">
@@ -602,11 +608,6 @@ const AddPortfolioModal = () => {
           </form>
         </div>
       </Container>
-      <RestrictionModal show={showDisclaimer} handleClose={handleDisclaimerClose} heading="Regulation">
-        <p className="custom-p">
-          Due to regulatory and compliance, any resident residing within the USA are restricted from access.
-        </p>
-      </RestrictionModal>
     </div>
   )
 }

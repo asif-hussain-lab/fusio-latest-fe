@@ -6,6 +6,9 @@ table {
     overflow: hidden; // Ensure content respects the border radius
 }
 
+#dark tbody td {
+  color: white;
+}
 
 .tableless {
     path {
@@ -88,11 +91,10 @@ table {
             }
 
             td {
-                background: $cardbgclrtbl;
+                background: transparent;
                 font-size: 1.4rem;
                 font-weight: 500;
                 border: 1px solid #9D9C9C;
-
                 @media (max-width: 1679px) {
                     font-size: 1.4rem;
                 }

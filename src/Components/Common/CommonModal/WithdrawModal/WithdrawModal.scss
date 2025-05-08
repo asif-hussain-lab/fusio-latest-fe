@@ -1,5 +1,8 @@
 @import '../../../../Assets/theme/_var.scss';
 
+.commonContentModal > div > div {
+  border: none;
+}
 .withdrawModal {
   .modal-body {
     padding-top: 0;

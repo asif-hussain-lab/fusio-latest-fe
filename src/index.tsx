@@ -7,10 +7,14 @@ import './index.scss'
 import reportWebVitals from './reportWebVitals'
 import { DisclaimerProvider } from './DisclaimerContext'
 
+import { ThemeProvider } from './Utils/ThemeContext'
+
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <DisclaimerProvider>
-    <App />
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
   </DisclaimerProvider>
 )
 

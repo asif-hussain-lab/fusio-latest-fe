@@ -1,0 +1,70 @@
+@import '../../../Assets/theme/_mixins.scss';
+/* Dark theme overrides */
+#dark {
+  .sidebar {
+    &_inner {
+      li {
+        .nav_link {
+          color: $whiteclr;
+
+          .nav_link_icon {
+            svg {
+              path {
+                fill: $whiteclr;
+              }
+            }
+          }
+
+          &.activel,
+          &:hover {
+            background: linear-gradient(180deg, #18749D 0%, #5EBFA9 100%);
+            color: $whiteclr;
+
+            .nav_link_icon {
+              svg {
+                path {
+                  fill: $whiteclr;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Light theme overrides */
+#light {
+  .sidebar {
+    &_inner {
+      li {
+        .nav_link {
+          color: $blackclr;
+
+          .nav_link_icon {
+            svg {
+              path {
+                fill: $blackclr;
+              }
+            }
+          }
+
+          &.activel,
+          &:hover {
+            background: linear-gradient(180deg, #18749D 0%, #5EBFA9 100%);
+            color: $whiteclr;
+
+            .nav_link_icon {
+              svg {
+                path {
+                  fill: $whiteclr;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -4,13 +4,15 @@ import { Dispatch, memo, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { callApiGetMethod } from '../../../Redux/Actions/api.action'
 import { divideBigNumber } from '../../../Services/common.service'
-const CanvasJSChart = CanvasJSReact.CanvasJSChart
+import { useTheme } from '../../../Utils/ThemeContext'
 
+const CanvasJSChart = CanvasJSReact.CanvasJSChart
 const StockChart = ({ id, priceType }: { id?: number; priceType?: string }) => {
   const dispatch: Dispatch<any> = useDispatch()
   const tokenDecimals = useSelector((state: any) => state.token.tokenDecimals)
   const [dataPointsForLineChart, setDataPointsForLineChart] = useState<any>([])
   const colorSet = ['', '#47a1ff', '',]
+  const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -274,12 +276,12 @@ const StockChart = ({ id, priceType }: { id?: number; priceType?: string }) => {
   const options = {
     theme: 'dark1',
     height: 510,
-    backgroundColor: '#F0F0F0',
+    backgroundColor: theme === 'dark' ? '#2D2C30' : '#fff',
     animationEnabled: true,
     axisY2: {
       lineThickness: 1,
       labelFontSize: 12,
-      labelFontColor: '#0A222F',
+      labelFontColor: theme === 'dark' ? '#fff' : '#0A222F',
       lineColor: '#5EBFA9',
       gridThickness: 0,
       gridColor: '#0A222F',
@@ -299,7 +301,7 @@ const StockChart = ({ id, priceType }: { id?: number; priceType?: string }) => {
       lineThickness: 1,
       lineColor: '#5EBFA9',
       labelFontSize: 12,
-      labelFontColor: '#0A222F',
+      labelFontColor: theme === 'dark' ? '#fff' : '#0A222F',
       labelAngle: 45,
       gridColor: '#0A222F',
       gridThickness: 0,

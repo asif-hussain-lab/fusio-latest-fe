@@ -48,13 +48,15 @@ const CuratedPortfolios = () => {
             <figure>
               <img src={el.icon} alt="icon" />
             </figure>
-            <p>{el.heading}</p>
-            <p>{el.text}</p>
+            <p className="theme-how-h ">{el.heading}</p>
+            <p className="theme-sensitive-heading">{el.text}</p>
           </div>
         ))}
       </section>
-      <div style={{marginTop: 'auto', padding: '1rem 0'}}>
-        <Link className='btn-style' to="/addPortfolio?type=2">Create your own Portfolio</Link>
+      <div style={{ marginTop: 'auto', padding: '1rem 0' }}>
+        <Link className="btn-style" to="/addPortfolio?type=2">
+          Create your own Portfolio
+        </Link>
       </div>
     </div>
   )
