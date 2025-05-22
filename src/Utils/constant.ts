@@ -1,3 +1,6 @@
+/** MAINTENANCE MODE */
+export const MAINTENANCE_MODE = true;
+
 /** PRODUCTION */
 // export const SERVER_URL = 'http://10.10.2.73:8000'
 export const SERVER_URL = 'https://api-fusio.blockguard.org'

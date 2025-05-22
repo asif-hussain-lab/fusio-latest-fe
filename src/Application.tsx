@@ -1,4 +1,5 @@
 import React, { Suspense, useEffect, useState } from 'react'
+import MaintenancePage from './Components/Pages/commonpage/MaintenancePage/MaintenancePage'
 import { useDispatch, useSelector } from 'react-redux'
 import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { Dispatch } from 'redux'
@@ -36,7 +37,7 @@ import { bnbDecimals, tokenDecimals, tokenSymbol } from './Redux/Slices/token.sl
 import { refreshUserData, setCountry, userBalance } from './Redux/Slices/user.slice'
 import { RequireAuth, UserCountryAuth } from './Routes/Guard/AuthGuard'
 import { getOrigin, versionManager } from './Services/common.service'
-import { SERVER_URL, TOKEN_ADDRESS } from './Utils/constant'
+import { MAINTENANCE_MODE, SERVER_URL, TOKEN_ADDRESS } from './Utils/constant'
 
 const Application: React.FC = () => {
   /**CREATE DISPATCH OBJECT */
@@ -114,7 +115,14 @@ const Application: React.FC = () => {
     getCountry()
   }, [])
 
-  const router = createBrowserRouter([
+  const maintenanceRouter = createBrowserRouter([
+    {
+      path: '*',
+      element: <MaintenancePage />,
+    },
+  ])
+
+  const normalRouter = createBrowserRouter([
     {
       path: '/',
       element: <UsersLayout />,
@@ -328,7 +336,7 @@ const Application: React.FC = () => {
 
   return (
     <Suspense fallback={<Loader />}>
-      <RouterProvider router={router} />
+      <RouterProvider router={MAINTENANCE_MODE ? maintenanceRouter : normalRouter} />
     </Suspense>
   )
 }
